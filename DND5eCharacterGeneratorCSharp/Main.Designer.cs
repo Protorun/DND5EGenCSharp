@@ -66,6 +66,8 @@
             this.lblHeight = new System.Windows.Forms.Label();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.lblWeight = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblPlayerName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstName
@@ -120,7 +122,7 @@
             treeNode26,
             treeNode29,
             treeNode30});
-            this.treeRaceSelect.Size = new System.Drawing.Size(121, 199);
+            this.treeRaceSelect.Size = new System.Drawing.Size(121, 212);
             this.treeRaceSelect.TabIndex = 1;
             // 
             // txtFirstName
@@ -173,7 +175,7 @@
             "Wizard"});
             this.listClass.Location = new System.Drawing.Point(143, 69);
             this.listClass.Name = "listClass";
-            this.listClass.Size = new System.Drawing.Size(121, 199);
+            this.listClass.Size = new System.Drawing.Size(121, 212);
             this.listClass.TabIndex = 6;
             // 
             // lblClass
@@ -204,7 +206,7 @@
             "Entertainer",
             "Folk Hero",
             "Gladiator",
-            "Guld Artison/Merchant",
+            "Guild Artison/Merchant",
             "Hermit",
             "Knight",
             "Noble",
@@ -216,7 +218,7 @@
             "Urchin"});
             this.listBackground.Location = new System.Drawing.Point(270, 69);
             this.listBackground.Name = "listBackground";
-            this.listBackground.Size = new System.Drawing.Size(121, 199);
+            this.listBackground.Size = new System.Drawing.Size(121, 212);
             this.listBackground.TabIndex = 8;
             // 
             // txtAge
@@ -267,11 +269,29 @@
             this.lblWeight.TabIndex = 14;
             this.lblWeight.Text = "Weight:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(651, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // lblPlayerName
+            // 
+            this.lblPlayerName.AutoSize = true;
+            this.lblPlayerName.Location = new System.Drawing.Point(648, 13);
+            this.lblPlayerName.Name = "lblPlayerName";
+            this.lblPlayerName.Size = new System.Drawing.Size(70, 13);
+            this.lblPlayerName.TabIndex = 16;
+            this.lblPlayerName.Text = "Player Name:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 278);
+            this.ClientSize = new System.Drawing.Size(800, 304);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.txtHeight);
@@ -313,6 +333,8 @@
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label lblWeight;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblPlayerName;
     }
 }
 
