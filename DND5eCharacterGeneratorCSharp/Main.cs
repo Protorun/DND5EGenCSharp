@@ -14,7 +14,7 @@ namespace DND5eCharacterGeneratorCSharp
 {
     public partial class Main : Form
     {
-        String FullName, FirstName, LastName;
+        String FullName, FirstName, LastName, CharacterRace, CharacterClass, CharacterBackground;
 
         public Main()
         {
@@ -25,48 +25,47 @@ namespace DND5eCharacterGeneratorCSharp
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
             FirstName = txtFirstName.Text;
-            //lblFirstName.Text = FirstName;
             FullName = FirstName + " " + LastName;
-            lblDisplayFullName.Text = FullName;
             if (String.IsNullOrEmpty(FirstName))
             {
-                
+                txtFirstName.Text = "Input name";
+            }
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            LastName = txtLastName.Text;
+            if (String.IsNullOrEmpty(FirstName))
+            {
+                txtFirstName.Text = "Input name";
             }
         }
 
         private void listClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String CharacterClass;
             CharacterClass = listClass.SelectedItem.ToString();
-            lblDisplayClass.Text = CharacterClass;
-            //lblAge.Text = CharacterClass;
-
         }
 
         private void treeRaceSelect_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            String CharacterRace;
             CharacterRace = treeRaceSelect.SelectedNode.Text;
-            lblDisplayRace.Text = CharacterRace;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             this.Text = FirstName + " " + LastName + " - " + txtPlayerName.Text + " - D&D 5th Edition Character Generator";
+            FullName = FirstName + " " + LastName;
+            lblDisplayFullName.Text = FullName;
+            lblDisplayRace.Text = CharacterRace;
+            lblDisplayClass.Text = CharacterClass;
+            lblDisplayBackground.Text = CharacterBackground;
         }
 
         private void listBackground_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String CharacterBackground;
             CharacterBackground = listBackground.SelectedItem.ToString();
-            lblDisplayBackground.Text = CharacterBackground;
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {           
-            LastName = txtLastName.Text;
-            FullName = FirstName + " " + LastName;
-            lblDisplayFullName.Text = FullName;
-        }
+
     }
 }
