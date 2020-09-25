@@ -131,6 +131,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(121, 20);
             this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
@@ -177,6 +178,7 @@
             this.listClass.Name = "listClass";
             this.listClass.Size = new System.Drawing.Size(121, 212);
             this.listClass.TabIndex = 6;
+            this.listClass.SelectedIndexChanged += new System.EventHandler(this.listClass_SelectedIndexChanged);
             // 
             // lblClass
             // 

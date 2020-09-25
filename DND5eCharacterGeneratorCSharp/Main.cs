@@ -16,5 +16,24 @@ namespace DND5eCharacterGeneratorCSharp
         {
             InitializeComponent();
         }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            String FirstName;
+            FirstName = txtFirstName.Text;
+            //lblFirstName.Text = FirstName;
+            if (String.IsNullOrEmpty(FirstName))
+            {
+                
+            }
+        }
+
+        private void listClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String CharacterClass;
+            CharacterClass = listClass.SelectedItem.ToString();
+            //lblAge.Text = CharacterClass;
+
+        }
     }
 }
