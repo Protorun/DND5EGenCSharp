@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dragonborn");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Shield Dwarf");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Dwarf", new System.Windows.Forms.TreeNode[] {
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Moon Elf");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("High Elf");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Wild Elf");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Eladrin");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Elf", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Half-Elf");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Halfling");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Half-Orc");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Human");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Human Variant");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Human", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Tiefling");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Dragonborn");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Shield Dwarf");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Dwarf", new System.Windows.Forms.TreeNode[] {
+            treeNode32});
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Moon Elf");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("High Elf");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Wild Elf");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Eladrin");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Elf", new System.Windows.Forms.TreeNode[] {
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Half-Elf");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Halfling");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Half-Orc");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Human");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Human Variant");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Human", new System.Windows.Forms.TreeNode[] {
+            treeNode42,
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Tiefling");
             this.lblFirstName = new System.Windows.Forms.Label();
             this.treeRaceSelect = new System.Windows.Forms.TreeView();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -66,8 +66,13 @@
             this.lblHeight = new System.Windows.Forms.Label();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.lblWeight = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPlayerName = new System.Windows.Forms.TextBox();
             this.lblPlayerName = new System.Windows.Forms.Label();
+            this.lblDisplayFullName = new System.Windows.Forms.Label();
+            this.lblDisplayRace = new System.Windows.Forms.Label();
+            this.lblDisplayClass = new System.Windows.Forms.Label();
+            this.lblDisplayBackground = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblFirstName
@@ -81,49 +86,51 @@
             // 
             // treeRaceSelect
             // 
+            this.treeRaceSelect.HideSelection = false;
             this.treeRaceSelect.Location = new System.Drawing.Point(16, 69);
             this.treeRaceSelect.Name = "treeRaceSelect";
-            treeNode16.Name = "RootDragonborn";
-            treeNode16.Text = "Dragonborn";
-            treeNode17.Name = "NodeShieldDwarf";
-            treeNode17.Text = "Shield Dwarf";
-            treeNode18.Name = "RootDwarf";
-            treeNode18.Text = "Dwarf";
-            treeNode19.Name = "NodeMoonElf";
-            treeNode19.Text = "Moon Elf";
-            treeNode20.Name = "NodeHighElf";
-            treeNode20.Text = "High Elf";
-            treeNode21.Name = "NodeWildElf";
-            treeNode21.Text = "Wild Elf";
-            treeNode22.Name = "NodeEladrin";
-            treeNode22.Text = "Eladrin";
-            treeNode23.Name = "RootElf";
-            treeNode23.Text = "Elf";
-            treeNode24.Name = "RootHalfElf";
-            treeNode24.Text = "Half-Elf";
-            treeNode25.Name = "RootHalfling";
-            treeNode25.Text = "Halfling";
-            treeNode26.Name = "RootHalf-Orc";
-            treeNode26.Text = "Half-Orc";
-            treeNode27.Name = "NodeHuman";
-            treeNode27.Text = "Human";
-            treeNode28.Name = "NodeHumanVariant";
-            treeNode28.Text = "Human Variant";
-            treeNode29.Name = "RootHuman";
-            treeNode29.Text = "Human";
-            treeNode30.Name = "RootTiefling";
-            treeNode30.Text = "Tiefling";
+            treeNode31.Name = "RootDragonborn";
+            treeNode31.Text = "Dragonborn";
+            treeNode32.Name = "NodeShieldDwarf";
+            treeNode32.Text = "Shield Dwarf";
+            treeNode33.Name = "RootDwarf";
+            treeNode33.Text = "Dwarf";
+            treeNode34.Name = "NodeMoonElf";
+            treeNode34.Text = "Moon Elf";
+            treeNode35.Name = "NodeHighElf";
+            treeNode35.Text = "High Elf";
+            treeNode36.Name = "NodeWildElf";
+            treeNode36.Text = "Wild Elf";
+            treeNode37.Name = "NodeEladrin";
+            treeNode37.Text = "Eladrin";
+            treeNode38.Name = "RootElf";
+            treeNode38.Text = "Elf";
+            treeNode39.Name = "RootHalfElf";
+            treeNode39.Text = "Half-Elf";
+            treeNode40.Name = "RootHalfling";
+            treeNode40.Text = "Halfling";
+            treeNode41.Name = "RootHalf-Orc";
+            treeNode41.Text = "Half-Orc";
+            treeNode42.Name = "NodeHuman";
+            treeNode42.Text = "Human";
+            treeNode43.Name = "NodeHumanVariant";
+            treeNode43.Text = "Human Variant";
+            treeNode44.Name = "RootHuman";
+            treeNode44.Text = "Human";
+            treeNode45.Name = "RootTiefling";
+            treeNode45.Text = "Tiefling";
             this.treeRaceSelect.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode18,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26,
-            treeNode29,
-            treeNode30});
+            treeNode31,
+            treeNode33,
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode44,
+            treeNode45});
             this.treeRaceSelect.Size = new System.Drawing.Size(121, 212);
             this.treeRaceSelect.TabIndex = 1;
+            this.treeRaceSelect.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeRaceSelect_AfterSelect);
             // 
             // txtFirstName
             // 
@@ -139,6 +146,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(121, 20);
             this.txtLastName.TabIndex = 4;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // lblLastName
             // 
@@ -222,6 +230,7 @@
             this.listBackground.Name = "listBackground";
             this.listBackground.Size = new System.Drawing.Size(121, 212);
             this.listBackground.TabIndex = 8;
+            this.listBackground.SelectedIndexChanged += new System.EventHandler(this.listBackground_SelectedIndexChanged);
             // 
             // txtAge
             // 
@@ -271,12 +280,12 @@
             this.lblWeight.TabIndex = 14;
             this.lblWeight.Text = "Weight:";
             // 
-            // textBox1
+            // txtPlayerName
             // 
-            this.textBox1.Location = new System.Drawing.Point(651, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtPlayerName.Location = new System.Drawing.Point(651, 30);
+            this.txtPlayerName.Name = "txtPlayerName";
+            this.txtPlayerName.Size = new System.Drawing.Size(121, 20);
+            this.txtPlayerName.TabIndex = 17;
             // 
             // lblPlayerName
             // 
@@ -287,12 +296,64 @@
             this.lblPlayerName.TabIndex = 16;
             this.lblPlayerName.Text = "Player Name:";
             // 
+            // lblDisplayFullName
+            // 
+            this.lblDisplayFullName.AutoSize = true;
+            this.lblDisplayFullName.Location = new System.Drawing.Point(397, 69);
+            this.lblDisplayFullName.Name = "lblDisplayFullName";
+            this.lblDisplayFullName.Size = new System.Drawing.Size(84, 13);
+            this.lblDisplayFullName.TabIndex = 18;
+            this.lblDisplayFullName.Text = "Character Name";
+            // 
+            // lblDisplayRace
+            // 
+            this.lblDisplayRace.AutoSize = true;
+            this.lblDisplayRace.Location = new System.Drawing.Point(397, 82);
+            this.lblDisplayRace.Name = "lblDisplayRace";
+            this.lblDisplayRace.Size = new System.Drawing.Size(33, 13);
+            this.lblDisplayRace.TabIndex = 19;
+            this.lblDisplayRace.Text = "Race";
+            // 
+            // lblDisplayClass
+            // 
+            this.lblDisplayClass.AutoSize = true;
+            this.lblDisplayClass.Location = new System.Drawing.Point(397, 95);
+            this.lblDisplayClass.Name = "lblDisplayClass";
+            this.lblDisplayClass.Size = new System.Drawing.Size(32, 13);
+            this.lblDisplayClass.TabIndex = 20;
+            this.lblDisplayClass.Text = "Class";
+            // 
+            // lblDisplayBackground
+            // 
+            this.lblDisplayBackground.AutoSize = true;
+            this.lblDisplayBackground.Location = new System.Drawing.Point(397, 108);
+            this.lblDisplayBackground.Name = "lblDisplayBackground";
+            this.lblDisplayBackground.Size = new System.Drawing.Size(65, 13);
+            this.lblDisplayBackground.TabIndex = 21;
+            this.lblDisplayBackground.Text = "Background";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnCreate.Location = new System.Drawing.Point(696, 257);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 22;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 304);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.lblDisplayBackground);
+            this.Controls.Add(this.lblDisplayClass);
+            this.Controls.Add(this.lblDisplayRace);
+            this.Controls.Add(this.lblDisplayFullName);
+            this.Controls.Add(this.txtPlayerName);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.lblWeight);
@@ -335,8 +396,13 @@
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label lblWeight;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPlayerName;
         private System.Windows.Forms.Label lblPlayerName;
+        private System.Windows.Forms.Label lblDisplayFullName;
+        private System.Windows.Forms.Label lblDisplayRace;
+        private System.Windows.Forms.Label lblDisplayClass;
+        private System.Windows.Forms.Label lblDisplayBackground;
+        private System.Windows.Forms.Button btnCreate;
     }
 }
 
