@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Dragonborn");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Shield Dwarf");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Dwarf", new System.Windows.Forms.TreeNode[] {
-            treeNode32});
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Moon Elf");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("High Elf");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Wild Elf");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Eladrin");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Elf", new System.Windows.Forms.TreeNode[] {
-            treeNode34,
-            treeNode35,
-            treeNode36,
-            treeNode37});
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Half-Elf");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Halfling");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Half-Orc");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Human");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Human Variant");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Human", new System.Windows.Forms.TreeNode[] {
-            treeNode42,
-            treeNode43});
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Tiefling");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Dragonborn");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Shield Dwarf");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Dwarf", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Moon Elf");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("High Elf");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Wild Elf");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Eladrin");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Elf", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Half-Elf");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Halfling");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Half-Orc");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Human");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Human Variant");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Human", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Tiefling");
             this.lblFirstName = new System.Windows.Forms.Label();
             this.treeRaceSelect = new System.Windows.Forms.TreeView();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -89,45 +89,45 @@
             this.treeRaceSelect.HideSelection = false;
             this.treeRaceSelect.Location = new System.Drawing.Point(16, 69);
             this.treeRaceSelect.Name = "treeRaceSelect";
-            treeNode31.Name = "RootDragonborn";
-            treeNode31.Text = "Dragonborn";
-            treeNode32.Name = "NodeShieldDwarf";
-            treeNode32.Text = "Shield Dwarf";
-            treeNode33.Name = "RootDwarf";
-            treeNode33.Text = "Dwarf";
-            treeNode34.Name = "NodeMoonElf";
-            treeNode34.Text = "Moon Elf";
-            treeNode35.Name = "NodeHighElf";
-            treeNode35.Text = "High Elf";
-            treeNode36.Name = "NodeWildElf";
-            treeNode36.Text = "Wild Elf";
-            treeNode37.Name = "NodeEladrin";
-            treeNode37.Text = "Eladrin";
-            treeNode38.Name = "RootElf";
-            treeNode38.Text = "Elf";
-            treeNode39.Name = "RootHalfElf";
-            treeNode39.Text = "Half-Elf";
-            treeNode40.Name = "RootHalfling";
-            treeNode40.Text = "Halfling";
-            treeNode41.Name = "RootHalf-Orc";
-            treeNode41.Text = "Half-Orc";
-            treeNode42.Name = "NodeHuman";
-            treeNode42.Text = "Human";
-            treeNode43.Name = "NodeHumanVariant";
-            treeNode43.Text = "Human Variant";
-            treeNode44.Name = "RootHuman";
-            treeNode44.Text = "Human";
-            treeNode45.Name = "RootTiefling";
-            treeNode45.Text = "Tiefling";
+            treeNode1.Name = "RootDragonborn";
+            treeNode1.Text = "Dragonborn";
+            treeNode2.Name = "NodeShieldDwarf";
+            treeNode2.Text = "Shield Dwarf";
+            treeNode3.Name = "RootDwarf";
+            treeNode3.Text = "Dwarf";
+            treeNode4.Name = "NodeMoonElf";
+            treeNode4.Text = "Moon Elf";
+            treeNode5.Name = "NodeHighElf";
+            treeNode5.Text = "High Elf";
+            treeNode6.Name = "NodeWildElf";
+            treeNode6.Text = "Wild Elf";
+            treeNode7.Name = "NodeEladrin";
+            treeNode7.Text = "Eladrin";
+            treeNode8.Name = "RootElf";
+            treeNode8.Text = "Elf";
+            treeNode9.Name = "RootHalfElf";
+            treeNode9.Text = "Half-Elf";
+            treeNode10.Name = "RootHalfling";
+            treeNode10.Text = "Halfling";
+            treeNode11.Name = "RootHalf-Orc";
+            treeNode11.Text = "Half-Orc";
+            treeNode12.Name = "NodeHuman";
+            treeNode12.Text = "Human";
+            treeNode13.Name = "NodeHumanVariant";
+            treeNode13.Text = "Human Variant";
+            treeNode14.Name = "RootHuman";
+            treeNode14.Text = "Human";
+            treeNode15.Name = "RootTiefling";
+            treeNode15.Text = "Tiefling";
             this.treeRaceSelect.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode31,
-            treeNode33,
-            treeNode38,
-            treeNode39,
-            treeNode40,
-            treeNode41,
-            treeNode44,
-            treeNode45});
+            treeNode1,
+            treeNode3,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode14,
+            treeNode15});
             this.treeRaceSelect.Size = new System.Drawing.Size(121, 212);
             this.treeRaceSelect.TabIndex = 1;
             this.treeRaceSelect.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeRaceSelect_AfterSelect);
