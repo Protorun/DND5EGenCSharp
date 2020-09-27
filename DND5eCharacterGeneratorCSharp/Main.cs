@@ -12,60 +12,64 @@ using System.Windows.Forms;
 
 namespace DND5eCharacterGeneratorCSharp
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
+        readonly List<Character>  CharacterList = new List<Character>();
         String FullName, FirstName, LastName, CharacterRace, CharacterClass, CharacterBackground;
 
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
         }
 
 
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        private void TxtFirstName_TextChanged(object sender, EventArgs e)
         {
-            FirstName = txtFirstName.Text;
+            FirstName = TxtFirstName.Text;
             FullName = FirstName + " " + LastName;
             if (String.IsNullOrEmpty(FirstName))
             {
-                txtFirstName.Text = "Input name";
+                TxtFirstName.Text = "Input name";
             }
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
+        private void TxtLastName_TextChanged(object sender, EventArgs e)
         {
-            LastName = txtLastName.Text;
+            LastName = TxtLastName.Text;
             if (String.IsNullOrEmpty(FirstName))
             {
-                txtFirstName.Text = "Input name";
+                TxtFirstName.Text = "Input name";
             }
         }
 
-        private void listClass_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CharacterClass = listClass.SelectedItem.ToString();
+            CharacterClass = ListClass.SelectedItem.ToString();
         }
 
-        private void treeRaceSelect_AfterSelect(object sender, TreeViewEventArgs e)
+        private void TreeRaceSelect_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            CharacterRace = treeRaceSelect.SelectedNode.Text;
+            CharacterRace = TreeRaceSelect.SelectedNode.Text;
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void ListBackground_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Text = FirstName + " " + LastName + " - " + txtPlayerName.Text + " - D&D 5th Edition Character Generator";
+            CharacterBackground = ListBackground.SelectedItem.ToString();
+        }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            this.Text = FirstName + " " + LastName + " - " + " - D&D 5th Edition Character Generator";
             FullName = FirstName + " " + LastName;
             lblDisplayFullName.Text = FullName;
             lblDisplayRace.Text = CharacterRace;
             lblDisplayClass.Text = CharacterClass;
             lblDisplayBackground.Text = CharacterBackground;
+            Character ThisToon = new Character(FirstName, LastName, TxtAge.Text, TxtHeight.Text, TxtWeight.Text, CharacterRace, CharacterClass, CharacterBackground);
+            CharacterList.Add(ThisToon);
+            //lblDisplayFullName.Text = CharacterList.ToString();
+            lblDisplayFullName.Text = CharacterList[0].FirstName + CharacterList[0].Race + CharacterList[0].Class;
         }
-
-        private void listBackground_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CharacterBackground = listBackground.SelectedItem.ToString();
-        }
-
 
     }
 }
