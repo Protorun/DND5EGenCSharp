@@ -68,4 +68,8 @@ public class Calcs
 
 		return Modifier;
     }
+
+	public static int RollAttribute(){
+
+	}
 }
