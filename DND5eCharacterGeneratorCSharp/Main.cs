@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 
 
@@ -32,6 +33,15 @@ namespace DND5eCharacterGeneratorCSharp
                 TxtFirstName.Text = "Input name";
             }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //AllocConsole();
+        }
+
+        //[DllImport("kernel32.dll", SetLastError = true)]
+        //[return: MarshalAs(UnmanagedType.Bool)]
+        //static extern bool AllocConsole();
 
         private void TxtLastName_TextChanged(object sender, EventArgs e)
         {
@@ -67,8 +77,10 @@ namespace DND5eCharacterGeneratorCSharp
             lblDisplayBackground.Text = CharacterBackground;
             Character ThisToon = new Character(FirstName, LastName, TxtAge.Text, TxtHeight.Text, TxtWeight.Text, CharacterRace, CharacterClass, CharacterBackground);
             CharacterList.Add(ThisToon);
-            //lblDisplayFullName.Text = CharacterList.ToString();
-            lblDisplayFullName.Text = CharacterList[0].FirstName + CharacterList[0].Race + CharacterList[0].Class;
+            //lblDisplayFullName.Text = CharacterList[0].FirstName + CharacterList[0].Race + CharacterList[0].Class;
+            int Att = Calcs.RollAttribute();
+            String AttString = Att.ToString();
+            //lblDisplayFullName.Text = "Attribute roll is - " + Att.ToString();
         }
 
     }

@@ -71,6 +71,13 @@
             this.lblDisplayClass = new System.Windows.Forms.Label();
             this.lblDisplayBackground = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.lblAttributes = new System.Windows.Forms.Label();
+            this.lblStrength = new System.Windows.Forms.Label();
+            this.lblDexterity = new System.Windows.Forms.Label();
+            this.lblIntelligence = new System.Windows.Forms.Label();
+            this.lblConstitution = new System.Windows.Forms.Label();
+            this.lblCharisma = new System.Windows.Forms.Label();
+            this.lblWisdom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblFirstName
@@ -325,11 +332,81 @@
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
+            // lblAttributes
+            // 
+            this.lblAttributes.AutoSize = true;
+            this.lblAttributes.Location = new System.Drawing.Point(13, 284);
+            this.lblAttributes.Name = "lblAttributes";
+            this.lblAttributes.Size = new System.Drawing.Size(54, 13);
+            this.lblAttributes.TabIndex = 23;
+            this.lblAttributes.Text = "Attributes:";
+            // 
+            // lblStrength
+            // 
+            this.lblStrength.AutoSize = true;
+            this.lblStrength.Location = new System.Drawing.Point(13, 297);
+            this.lblStrength.Name = "lblStrength";
+            this.lblStrength.Size = new System.Drawing.Size(56, 13);
+            this.lblStrength.TabIndex = 24;
+            this.lblStrength.Text = "Strength - ";
+            // 
+            // lblDexterity
+            // 
+            this.lblDexterity.AutoSize = true;
+            this.lblDexterity.Location = new System.Drawing.Point(13, 310);
+            this.lblDexterity.Name = "lblDexterity";
+            this.lblDexterity.Size = new System.Drawing.Size(57, 13);
+            this.lblDexterity.TabIndex = 25;
+            this.lblDexterity.Text = "Dexterity - ";
+            // 
+            // lblIntelligence
+            // 
+            this.lblIntelligence.AutoSize = true;
+            this.lblIntelligence.Location = new System.Drawing.Point(13, 336);
+            this.lblIntelligence.Name = "lblIntelligence";
+            this.lblIntelligence.Size = new System.Drawing.Size(70, 13);
+            this.lblIntelligence.TabIndex = 27;
+            this.lblIntelligence.Text = "Intelligence - ";
+            // 
+            // lblConstitution
+            // 
+            this.lblConstitution.AutoSize = true;
+            this.lblConstitution.Location = new System.Drawing.Point(13, 323);
+            this.lblConstitution.Name = "lblConstitution";
+            this.lblConstitution.Size = new System.Drawing.Size(71, 13);
+            this.lblConstitution.TabIndex = 26;
+            this.lblConstitution.Text = "Constitution - ";
+            // 
+            // lblCharisma
+            // 
+            this.lblCharisma.AutoSize = true;
+            this.lblCharisma.Location = new System.Drawing.Point(13, 362);
+            this.lblCharisma.Name = "lblCharisma";
+            this.lblCharisma.Size = new System.Drawing.Size(59, 13);
+            this.lblCharisma.TabIndex = 29;
+            this.lblCharisma.Text = "Charisma - ";
+            // 
+            // lblWisdom
+            // 
+            this.lblWisdom.AutoSize = true;
+            this.lblWisdom.Location = new System.Drawing.Point(13, 349);
+            this.lblWisdom.Name = "lblWisdom";
+            this.lblWisdom.Size = new System.Drawing.Size(54, 13);
+            this.lblWisdom.TabIndex = 28;
+            this.lblWisdom.Text = "Wisdom - ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 286);
+            this.ClientSize = new System.Drawing.Size(653, 457);
+            this.Controls.Add(this.lblCharisma);
+            this.Controls.Add(this.lblWisdom);
+            this.Controls.Add(this.lblIntelligence);
+            this.Controls.Add(this.lblConstitution);
+            this.Controls.Add(this.lblDexterity);
+            this.Controls.Add(this.lblStrength);
+            this.Controls.Add(this.lblAttributes);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblDisplayBackground);
             this.Controls.Add(this.lblDisplayClass);
@@ -353,6 +430,7 @@
             this.Controls.Add(this.LblFirstName);
             this.Name = "MainForm";
             this.Text = "D&D 5th Edition Character Generator";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +459,13 @@
         private System.Windows.Forms.Label lblDisplayClass;
         private System.Windows.Forms.Label lblDisplayBackground;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label lblAttributes;
+        private System.Windows.Forms.Label lblStrength;
+        private System.Windows.Forms.Label lblDexterity;
+        private System.Windows.Forms.Label lblIntelligence;
+        private System.Windows.Forms.Label lblConstitution;
+        private System.Windows.Forms.Label lblCharisma;
+        private System.Windows.Forms.Label lblWisdom;
     }
 }
 
