@@ -71,7 +71,7 @@ public class Calcs
 		return Modifier;
     }
 
-	public static int RollAttribute(){
+	public int RollAttribute(){
 		int[] Rolls = { 0, 0, 0, 0 };
 		int Attribute = 0;
 		var DiceRoller = new Random();
@@ -79,15 +79,27 @@ public class Calcs
         {
 			int Result = DiceRoller.Next(1, 7);
 			Rolls.SetValue(Result, i);
-			//Console.WriteLine(Result);
+			Console.WriteLine(Result);
         }
 		Array.Sort(Rolls);
         for (int i = 1; i < Rolls.Length; i++)
         {
 			Attribute = Attribute + Rolls[i];
         }
-		int Modifier = CalcMod(Attribute);
+		//int Modifier = CalcMod(Attribute);
 		//Console.WriteLine("Modifier is : " + Modifier);
 		return Attribute;
 	}
+
+	public int[] RollArray()
+    {
+		int[] FinalArray = { 0, 0, 0, 0, 0, 0 };
+		FinalArray.SetValue(RollAttribute(), 0);
+		FinalArray.SetValue(RollAttribute(), 1);
+		FinalArray.SetValue(RollAttribute(), 2);
+		FinalArray.SetValue(RollAttribute(), 3);
+		FinalArray.SetValue(RollAttribute(), 4);
+		FinalArray.SetValue(RollAttribute(), 5);
+		return FinalArray;
+    }
 }

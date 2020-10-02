@@ -77,10 +77,17 @@ namespace DND5eCharacterGeneratorCSharp
             lblDisplayBackground.Text = CharacterBackground;
             Character ThisToon = new Character(FirstName, LastName, TxtAge.Text, TxtHeight.Text, TxtWeight.Text, CharacterRace, CharacterClass, CharacterBackground);
             CharacterList.Add(ThisToon);
+            Calcs calcs = new Calcs();
             //lblDisplayFullName.Text = CharacterList[0].FirstName + CharacterList[0].Race + CharacterList[0].Class;
-            int Att = Calcs.RollAttribute();
+            int Att = calcs.RollAttribute();
             String AttString = Att.ToString();
             //lblDisplayFullName.Text = "Attribute roll is - " + Att.ToString();
+            //int[] RollArray;
+            //RollArray = calcs.RollArray();
+            //lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
+            //lblStrength.Text = "Strength - " + calcs.RollAttribute();
+            //lblDexterity.Text = "Dexterity - " + calcs.RollAttribute();
+            //lblConstitution.Text = "Constitution - " + calcs.RollAttribute();
         }
 
     }

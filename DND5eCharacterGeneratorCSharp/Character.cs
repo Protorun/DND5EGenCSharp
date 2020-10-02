@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Summary description for Class1
@@ -33,6 +34,7 @@ public class Character
 		Background = ToonBackground;
 		HitPoints = RollHP(Class);
 		Level = 1;
+		Dictionary<String, int> Attributes = new Dictionary<String, int>();
 	}
 
 	private int RollHP(String ClassName)

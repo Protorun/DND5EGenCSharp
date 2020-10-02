@@ -1,0 +1,10 @@
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\bin\Release\DND5eCharacterGeneratorCSharp.exe.config
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\bin\Release\DND5eCharacterGeneratorCSharp.exe
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\bin\Release\DND5eCharacterGeneratorCSharp.pdb
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.MainForm.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.Properties.Resources.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.csproj.GenerateResource.cache
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.exe
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.pdb
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Release\DND5eCharacterGeneratorCSharp.csprojAssemblyReference.cache
