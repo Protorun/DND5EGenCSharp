@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Drawing.Text;
 
 public class Calcs
 {
-	
 	public Calcs()
 	{
 		
@@ -18,56 +18,12 @@ public class Calcs
 
 	public static int CalcMod(int Attribute)
     {
-		int Modifier;
-		if(Attribute <= 1)
-        {
-			Modifier = -5;
-        }
-		else if (Attribute <= 3)
-		{
-			Modifier = -4;
-		}
-		else if (Attribute <= 5)
-		{
-			Modifier = -3;
-		}
-		else if (Attribute <= 7)
-		{
-			Modifier = -2;
-		}
-		else if (Attribute <= 9)
-		{
-			Modifier = -1;
-		}
-		else if (Attribute <= 11)
-		{
-			Modifier = 0;
-		}
-		else if (Attribute <= 13)
-		{
-			Modifier = 1;
-		}
-		else if (Attribute <= 15)
-		{
-			Modifier = 2;
-		}
-		else if (Attribute <= 17)
-		{
-			Modifier = 3;
-		}
-		else if (Attribute <= 19)
-		{
-			Modifier = 4;
-		}
-		else if (Attribute == 20)
-		{
-			Modifier = 5;
-		}
-		else
-		{
-			Modifier = 0;
-		}
+		int Modifier = (Attribute - 10) / 2;
 
+		if(Attribute < 10)
+        {
+			Modifier = (int)Math.Floor((Attribute - 10)/2.0) ;
+        }
 		return Modifier;
     }
 
@@ -77,14 +33,14 @@ public class Calcs
 		var DiceRoller = new Random();
 		for (int i = 0; i < 4; i++)
         {
-			int Result = DiceRoller.Next(1, 7);
-			Rolls.SetValue(Result, i);
-			Console.WriteLine(Result);
+				int Result = DiceRoller.Next(1, 7);
+				Rolls.SetValue(Result, i);
+				//Console.WriteLine(Result);		
         }
 		Array.Sort(Rolls);
         for (int i = 1; i < Rolls.Length; i++)
         {
-			Attribute = Attribute + Rolls[i];
+			Attribute += Rolls[i];
         }
 		//int Modifier = CalcMod(Attribute);
 		//Console.WriteLine("Modifier is : " + Modifier);
@@ -94,12 +50,33 @@ public class Calcs
 	public int[] RollArray()
     {
 		int[] FinalArray = { 0, 0, 0, 0, 0, 0 };
-		FinalArray.SetValue(RollAttribute(), 0);
-		FinalArray.SetValue(RollAttribute(), 1);
-		FinalArray.SetValue(RollAttribute(), 2);
-		FinalArray.SetValue(RollAttribute(), 3);
-		FinalArray.SetValue(RollAttribute(), 4);
-		FinalArray.SetValue(RollAttribute(), 5);
+
+		int[] Rolls = { 0, 0, 0, 0 };
+		int Attribute = 0;
+		var DiceRoller = new Random();
+		for (int x = 0; x < 6; x++)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				int Result = DiceRoller.Next(1, 7);
+				Rolls.SetValue(Result, i);
+				//Console.WriteLine(Result);
+			}
+			Array.Sort(Rolls);
+			for (int i = 1; i < Rolls.Length; i++)
+			{
+				Attribute += Rolls[i];
+			}
+
+			FinalArray.SetValue(Attribute, x);
+			Attribute = 0;
+		}
+		//FinalArray.SetValue(RollAttribute(), 0);
+		//FinalArray.SetValue(RollAttribute(), 1);
+		//FinalArray.SetValue(RollAttribute(), 2);
+		//FinalArray.SetValue(RollAttribute(), 3);
+		//FinalArray.SetValue(RollAttribute(), 4);
+		//FinalArray.SetValue(RollAttribute(), 5);
 		return FinalArray;
     }
 }

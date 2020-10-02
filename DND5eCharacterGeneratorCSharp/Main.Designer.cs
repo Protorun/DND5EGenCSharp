@@ -28,30 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dragonborn");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Shield Dwarf");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Dwarf", new System.Windows.Forms.TreeNode[] {
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Moon Elf");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("High Elf");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Wild Elf");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Eladrin");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Elf", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Half-Elf");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Halfling");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Half-Orc");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Human");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Human Variant");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Human", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Tiefling");
             this.LblFirstName = new System.Windows.Forms.Label();
-            this.TreeRaceSelect = new System.Windows.Forms.TreeView();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.TxtLastName = new System.Windows.Forms.TextBox();
             this.LblLastName = new System.Windows.Forms.Label();
@@ -79,6 +56,11 @@
             this.lblCharisma = new System.Windows.Forms.Label();
             this.lblWisdom = new System.Windows.Forms.Label();
             this.lblDisplayRolls = new System.Windows.Forms.Label();
+            this.ListSubrace = new System.Windows.Forms.ListBox();
+            this.ListRace = new System.Windows.Forms.ListBox();
+            this.lblSubrace = new System.Windows.Forms.Label();
+            this.lblDisplaySubrace = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblFirstName
@@ -90,60 +72,12 @@
             this.LblFirstName.TabIndex = 0;
             this.LblFirstName.Text = "First Name:";
             // 
-            // TreeRaceSelect
-            // 
-            this.TreeRaceSelect.HideSelection = false;
-            this.TreeRaceSelect.Location = new System.Drawing.Point(16, 69);
-            this.TreeRaceSelect.Name = "TreeRaceSelect";
-            treeNode16.Name = "RootDragonborn";
-            treeNode16.Text = "Dragonborn";
-            treeNode17.Name = "NodeShieldDwarf";
-            treeNode17.Text = "Shield Dwarf";
-            treeNode18.Name = "RootDwarf";
-            treeNode18.Text = "Dwarf";
-            treeNode19.Name = "NodeMoonElf";
-            treeNode19.Text = "Moon Elf";
-            treeNode20.Name = "NodeHighElf";
-            treeNode20.Text = "High Elf";
-            treeNode21.Name = "NodeWildElf";
-            treeNode21.Text = "Wild Elf";
-            treeNode22.Name = "NodeEladrin";
-            treeNode22.Text = "Eladrin";
-            treeNode23.Name = "RootElf";
-            treeNode23.Text = "Elf";
-            treeNode24.Name = "RootHalfElf";
-            treeNode24.Text = "Half-Elf";
-            treeNode25.Name = "RootHalfling";
-            treeNode25.Text = "Halfling";
-            treeNode26.Name = "RootHalf-Orc";
-            treeNode26.Text = "Half-Orc";
-            treeNode27.Name = "NodeHuman";
-            treeNode27.Text = "Human";
-            treeNode28.Name = "NodeHumanVariant";
-            treeNode28.Text = "Human Variant";
-            treeNode29.Name = "RootHuman";
-            treeNode29.Text = "Human";
-            treeNode30.Name = "RootTiefling";
-            treeNode30.Text = "Tiefling";
-            this.TreeRaceSelect.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode18,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26,
-            treeNode29,
-            treeNode30});
-            this.TreeRaceSelect.Size = new System.Drawing.Size(121, 212);
-            this.TreeRaceSelect.TabIndex = 1;
-            this.TreeRaceSelect.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeRaceSelect_AfterSelect);
-            // 
             // TxtFirstName
             // 
             this.TxtFirstName.Location = new System.Drawing.Point(16, 30);
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(121, 20);
-            this.TxtFirstName.TabIndex = 2;
+            this.TxtFirstName.TabIndex = 1;
             this.TxtFirstName.TextChanged += new System.EventHandler(this.TxtFirstName_TextChanged);
             // 
             // TxtLastName
@@ -151,7 +85,7 @@
             this.TxtLastName.Location = new System.Drawing.Point(143, 30);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(121, 20);
-            this.TxtLastName.TabIndex = 4;
+            this.TxtLastName.TabIndex = 2;
             this.TxtLastName.TextChanged += new System.EventHandler(this.TxtLastName_TextChanged);
             // 
             // LblLastName
@@ -188,16 +122,16 @@
             "Sorcerer",
             "Warlock",
             "Wizard"});
-            this.ListClass.Location = new System.Drawing.Point(143, 69);
+            this.ListClass.Location = new System.Drawing.Point(270, 69);
             this.ListClass.Name = "ListClass";
             this.ListClass.Size = new System.Drawing.Size(121, 212);
-            this.ListClass.TabIndex = 6;
+            this.ListClass.TabIndex = 8;
             this.ListClass.SelectedIndexChanged += new System.EventHandler(this.ListClass_SelectedIndexChanged);
             // 
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Location = new System.Drawing.Point(140, 53);
+            this.lblClass.Location = new System.Drawing.Point(267, 53);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(35, 13);
             this.lblClass.TabIndex = 7;
@@ -206,7 +140,7 @@
             // lblBackground
             // 
             this.lblBackground.AutoSize = true;
-            this.lblBackground.Location = new System.Drawing.Point(267, 53);
+            this.lblBackground.Location = new System.Drawing.Point(394, 53);
             this.lblBackground.Name = "lblBackground";
             this.lblBackground.Size = new System.Drawing.Size(68, 13);
             this.lblBackground.TabIndex = 9;
@@ -232,10 +166,10 @@
             "Sailor",
             "Soldier",
             "Urchin"});
-            this.ListBackground.Location = new System.Drawing.Point(270, 69);
+            this.ListBackground.Location = new System.Drawing.Point(397, 69);
             this.ListBackground.Name = "ListBackground";
             this.ListBackground.Size = new System.Drawing.Size(121, 212);
-            this.ListBackground.TabIndex = 8;
+            this.ListBackground.TabIndex = 9;
             this.ListBackground.SelectedIndexChanged += new System.EventHandler(this.ListBackground_SelectedIndexChanged);
             // 
             // TxtAge
@@ -243,7 +177,7 @@
             this.TxtAge.Location = new System.Drawing.Point(270, 30);
             this.TxtAge.Name = "TxtAge";
             this.TxtAge.Size = new System.Drawing.Size(121, 20);
-            this.TxtAge.TabIndex = 11;
+            this.TxtAge.TabIndex = 3;
             // 
             // LblAge
             // 
@@ -259,7 +193,7 @@
             this.TxtHeight.Location = new System.Drawing.Point(397, 30);
             this.TxtHeight.Name = "TxtHeight";
             this.TxtHeight.Size = new System.Drawing.Size(121, 20);
-            this.TxtHeight.TabIndex = 13;
+            this.TxtHeight.TabIndex = 4;
             // 
             // LblHeight
             // 
@@ -275,7 +209,7 @@
             this.TxtWeight.Location = new System.Drawing.Point(524, 30);
             this.TxtWeight.Name = "TxtWeight";
             this.TxtWeight.Size = new System.Drawing.Size(121, 20);
-            this.TxtWeight.TabIndex = 15;
+            this.TxtWeight.TabIndex = 5;
             // 
             // LblWeight
             // 
@@ -289,7 +223,7 @@
             // lblDisplayFullName
             // 
             this.lblDisplayFullName.AutoSize = true;
-            this.lblDisplayFullName.Location = new System.Drawing.Point(397, 69);
+            this.lblDisplayFullName.Location = new System.Drawing.Point(521, 69);
             this.lblDisplayFullName.Name = "lblDisplayFullName";
             this.lblDisplayFullName.Size = new System.Drawing.Size(84, 13);
             this.lblDisplayFullName.TabIndex = 18;
@@ -298,7 +232,7 @@
             // lblDisplayRace
             // 
             this.lblDisplayRace.AutoSize = true;
-            this.lblDisplayRace.Location = new System.Drawing.Point(397, 82);
+            this.lblDisplayRace.Location = new System.Drawing.Point(521, 82);
             this.lblDisplayRace.Name = "lblDisplayRace";
             this.lblDisplayRace.Size = new System.Drawing.Size(33, 13);
             this.lblDisplayRace.TabIndex = 19;
@@ -307,7 +241,7 @@
             // lblDisplayClass
             // 
             this.lblDisplayClass.AutoSize = true;
-            this.lblDisplayClass.Location = new System.Drawing.Point(397, 95);
+            this.lblDisplayClass.Location = new System.Drawing.Point(521, 108);
             this.lblDisplayClass.Name = "lblDisplayClass";
             this.lblDisplayClass.Size = new System.Drawing.Size(32, 13);
             this.lblDisplayClass.TabIndex = 20;
@@ -316,7 +250,7 @@
             // lblDisplayBackground
             // 
             this.lblDisplayBackground.AutoSize = true;
-            this.lblDisplayBackground.Location = new System.Drawing.Point(397, 108);
+            this.lblDisplayBackground.Location = new System.Drawing.Point(521, 121);
             this.lblDisplayBackground.Name = "lblDisplayBackground";
             this.lblDisplayBackground.Size = new System.Drawing.Size(65, 13);
             this.lblDisplayBackground.TabIndex = 21;
@@ -328,7 +262,7 @@
             this.btnCreate.Location = new System.Drawing.Point(570, 258);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnCreate.TabIndex = 22;
+            this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
@@ -399,17 +333,80 @@
             // lblDisplayRolls
             // 
             this.lblDisplayRolls.AutoSize = true;
-            this.lblDisplayRolls.Location = new System.Drawing.Point(13, 375);
+            this.lblDisplayRolls.Location = new System.Drawing.Point(13, 435);
             this.lblDisplayRolls.Name = "lblDisplayRolls";
             this.lblDisplayRolls.Size = new System.Drawing.Size(123, 13);
             this.lblDisplayRolls.TabIndex = 30;
             this.lblDisplayRolls.Text = "DISPLAY ROLLS HERE";
             // 
+            // ListSubrace
+            // 
+            this.ListSubrace.FormattingEnabled = true;
+            this.ListSubrace.Items.AddRange(new object[] {
+            "Select Race first"});
+            this.ListSubrace.Location = new System.Drawing.Point(143, 69);
+            this.ListSubrace.Name = "ListSubrace";
+            this.ListSubrace.Size = new System.Drawing.Size(121, 212);
+            this.ListSubrace.TabIndex = 7;
+            this.ListSubrace.SelectedIndexChanged += new System.EventHandler(this.ListSubrace_SelectedIndexChanged);
+            // 
+            // ListRace
+            // 
+            this.ListRace.FormattingEnabled = true;
+            this.ListRace.Items.AddRange(new object[] {
+            "Dragonborn",
+            "Dwarf",
+            "Elf",
+            "Gnome",
+            "Half-Elf",
+            "Halfling",
+            "Half-Orc",
+            "Human",
+            "Tiefling"});
+            this.ListRace.Location = new System.Drawing.Point(16, 69);
+            this.ListRace.Name = "ListRace";
+            this.ListRace.Size = new System.Drawing.Size(121, 212);
+            this.ListRace.TabIndex = 6;
+            this.ListRace.SelectedIndexChanged += new System.EventHandler(this.ListRace_SelectedIndexChanged);
+            // 
+            // lblSubrace
+            // 
+            this.lblSubrace.AutoSize = true;
+            this.lblSubrace.Location = new System.Drawing.Point(140, 53);
+            this.lblSubrace.Name = "lblSubrace";
+            this.lblSubrace.Size = new System.Drawing.Size(50, 13);
+            this.lblSubrace.TabIndex = 33;
+            this.lblSubrace.Text = "Subrace:";
+            // 
+            // lblDisplaySubrace
+            // 
+            this.lblDisplaySubrace.AutoSize = true;
+            this.lblDisplaySubrace.Location = new System.Drawing.Point(521, 95);
+            this.lblDisplaySubrace.Name = "lblDisplaySubrace";
+            this.lblDisplaySubrace.Size = new System.Drawing.Size(47, 13);
+            this.lblDisplaySubrace.TabIndex = 34;
+            this.lblDisplaySubrace.Text = "Subrace";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(570, 288);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 35;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 457);
+            this.ClientSize = new System.Drawing.Size(1282, 457);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.lblDisplaySubrace);
+            this.Controls.Add(this.lblSubrace);
+            this.Controls.Add(this.ListRace);
+            this.Controls.Add(this.ListSubrace);
             this.Controls.Add(this.lblDisplayRolls);
             this.Controls.Add(this.lblCharisma);
             this.Controls.Add(this.lblWisdom);
@@ -437,7 +434,6 @@
             this.Controls.Add(this.TxtLastName);
             this.Controls.Add(this.LblLastName);
             this.Controls.Add(this.TxtFirstName);
-            this.Controls.Add(this.TreeRaceSelect);
             this.Controls.Add(this.LblFirstName);
             this.Name = "MainForm";
             this.Text = "D&D 5th Edition Character Generator";
@@ -450,7 +446,6 @@
         #endregion
 
         private System.Windows.Forms.Label LblFirstName;
-        private System.Windows.Forms.TreeView TreeRaceSelect;
         private System.Windows.Forms.TextBox TxtFirstName;
         private System.Windows.Forms.TextBox TxtLastName;
         private System.Windows.Forms.Label LblLastName;
@@ -478,6 +473,11 @@
         private System.Windows.Forms.Label lblCharisma;
         private System.Windows.Forms.Label lblWisdom;
         private System.Windows.Forms.Label lblDisplayRolls;
+        private System.Windows.Forms.ListBox ListSubrace;
+        private System.Windows.Forms.ListBox ListRace;
+        private System.Windows.Forms.Label lblSubrace;
+        private System.Windows.Forms.Label lblDisplaySubrace;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 

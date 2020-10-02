@@ -1,12 +1,15 @@
-﻿using System;
+﻿using DND5eCharacterGeneratorCSharp;
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 /// <summary>
-/// Summary description for Class1
+/// Character Object
 /// </summary>
 public class Character
 {
-	public String FirstName, LastName, Age, Height, Weight, Race, Class, Background;
+	public string FirstName, LastName, Age, Height, Weight, Race, Subrace, Class, Background;
 	public int HitPoints,
 		Strength,
 		Dexterity,
@@ -22,7 +25,10 @@ public class Character
 		ChaMod,
 		Level;
 
-	public Character(String ToonFirstName, String ToonLastName, String ToonAge, String ToonHeight, String ToonWeight, String ToonRace, String ToonClass, String ToonBackground)
+	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
+	public Dictionary<string, string> Feats = new Dictionary<string, string>();
+
+	public Character(string ToonFirstName, string ToonLastName, string ToonAge, string ToonHeight, string ToonWeight, string ToonRace, string ToonSubrace, string ToonClass, string ToonBackground)
 	{
 		FirstName = ToonFirstName;
 		LastName = ToonLastName;
@@ -30,12 +36,25 @@ public class Character
 		Height = ToonHeight;
 		Weight = ToonWeight;
 		Race = ToonRace;
+		Subrace = ToonSubrace;
 		Class = ToonClass;
 		Background = ToonBackground;
 		HitPoints = RollHP(Class);
 		Level = 1;
-		Dictionary<String, int> Attributes = new Dictionary<String, int>();
+		Dictionary<string, int> Attributes = new Dictionary<string, int>();
+		Attributes.Add("Strength", 0);
+		Attributes.Add("Dexterity", 0);
+		Attributes.Add("Constitution", 0);
+		Attributes.Add("Intelligence", 0);
+		Attributes.Add("Wisdom", 0);
+		Attributes.Add("Charisma", 0);
+		Dictionary<string, string> Feats = new Dictionary<string, string>();
 	}
+
+	public Character()
+    {
+
+    }
 
 	private int RollHP(String ClassName)
     {
@@ -44,47 +63,47 @@ public class Character
         {
             Result = Calcs.RollDice(12);
         }
-		if(ClassName == "Bard")
+		else if(ClassName == "Bard")
         {
 			Result = Calcs.RollDice(8);
         }
-		if (ClassName == "Cleric")
+		else if (ClassName == "Cleric")
 		{
 			Result = Calcs.RollDice(8);
 		}
-		if (ClassName == "Druid")
+		else if (ClassName == "Druid")
 		{
 			Result = Calcs.RollDice(8);
 		}
-		if (ClassName == "Fighter")
+		else if (ClassName == "Fighter")
 		{
 			Result = Calcs.RollDice(10);
 		}
-		if (ClassName == "Monk")
+		else if (ClassName == "Monk")
 		{
 			Result = Calcs.RollDice(8);
 		}
-		if (ClassName == "Paladin")
+		else if (ClassName == "Paladin")
 		{
 			Result = Calcs.RollDice(10);
 		}
-		if (ClassName == "Ranger")
+		else if (ClassName == "Ranger")
 		{
 			Result = Calcs.RollDice(10);
 		}
-		if (ClassName == "Rogue")
+		else if (ClassName == "Rogue")
 		{
 			Result = Calcs.RollDice(8);
 		}
-		if (ClassName == "Sorcerer")
+		else if (ClassName == "Sorcerer")
 		{
 			Result = Calcs.RollDice(6);
 		}
-		if (ClassName == "Warlock")
+		else if (ClassName == "Warlock")
 		{
 			Result = Calcs.RollDice(8);
 		}
-		if (ClassName == "Wizard")
+		else if (ClassName == "Wizard")
 		{
 			Result = Calcs.RollDice(6);
 		}
@@ -95,12 +114,41 @@ public class Character
 		return Result;
     }
 
-	public String LevelUp(String ClassName)
+	public string LevelUp(string ClassName)
     {
-		HitPoints = HitPoints + RollHP(ClassName);
-		String Confirm = ("HP roll for level up = " + HitPoints);
+		HitPoints += RollHP(ClassName) + ConMod;
+		string Confirm = ("HP roll for level up = " + HitPoints);
 		return Confirm;
     }
 
+	public void SetAttribute(Character ThisToon, string AttName, int AttValue)
+    {
+        if (ThisToon.Attributes.ContainsKey(AttName))
+        {
+			ThisToon.Attributes[AttName] = AttValue;
+		}
+        else
+        {
+			ThisToon.Attributes.Add(AttName, AttValue);
+        }
+		
+    }
 
+	public void ModifyAttribute(Character ThisToon, string AttName, int AddedValue)
+    {
+		if (ThisToon.Attributes.ContainsKey(AttName))
+        {
+			int Value = ThisToon.Attributes[AttName];
+			Value += AddedValue;
+			ThisToon.Attributes[AttName] = Value;
+        }		
+    }
+
+	public void AddFeat(Character ThisToon, string FeatName, string FeatDesc)
+    {
+		if (!ThisToon.Feats.ContainsKey(FeatName))
+        {
+			ThisToon.Feats.Add(FeatName, FeatDesc);
+        }
+    }
 }
