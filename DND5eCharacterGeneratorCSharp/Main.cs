@@ -37,7 +37,8 @@ namespace DND5eCharacterGeneratorCSharp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //Feats ToonFeats = new Feats();
+            Feats.InitialiseFeats();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -76,14 +77,20 @@ namespace DND5eCharacterGeneratorCSharp
             Character TestToon = CharacterList[CharacterList.Count - 1];
             Console.WriteLine(CharacterList.Count);
             Console.WriteLine(TestToon.FirstName);
-            if (TestToon.Feats.ContainsKey("Darkvision"))
+            if (TestToon.FeatsList.ContainsKey("Darkvision"))
             {
-                Console.WriteLine(TestToon.Feats["Darkvision"]);
+                Console.WriteLine(TestToon.FeatsList["Darkvision"]);
             }
+
+            foreach (KeyValuePair<string, string> kvp in TestToon.FeatsList)
+            {
+            System.Diagnostics.Debug.WriteLine("FeatName = {0}, FeatDesc = {1}", kvp.Key, kvp.Value);
+            }
+
             
             //Console.WriteLine("Strength - " + TestToon.Attributes["Strength"]);
-            //Console.WriteLine(CharacterList[1].FirstName);
-            //Console.WriteLine(CharacterList[1].Attributes["Charisma"]);
+            //Console.WriteLine(CharacterList[0].FirstName);
+            //Console.WriteLine(CharacterList[0].Attributes["Charisma"]);
         }
 
         private void ListRace_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,7 +147,7 @@ namespace DND5eCharacterGeneratorCSharp
             SubraceSetup SRS = new SubraceSetup();
             if (CharacterRace == "Dragonborn")
             {
-                SRS.DragonbornSetup(ListSubrace);
+                SRS.DragonbornSetup(ThisToon);
             }
             else if (CharacterRace == "Dwarf")
             {
@@ -148,31 +155,31 @@ namespace DND5eCharacterGeneratorCSharp
             }
             else if (CharacterRace == "Elf")
             {
-                SRS.ElfSetup(ListSubrace);
+                SRS.ElfSetup(ThisToon);
             }
             else if (CharacterRace == "Gnome")
             {
-                SRS.GnomeSetup(ListSubrace);
+                SRS.GnomeSetup(ThisToon);
             }
             else if (CharacterRace == "Half-Elf")
             {
-                SRS.HalfElfSetup();
+                SRS.HalfElfSetup(ThisToon);
             }
             else if (CharacterRace == "Halfling")
             {
-                SRS.HalflingSetup(ListSubrace);
+                SRS.HalflingSetup(ThisToon);
             }
             else if (CharacterRace == "Half-Orc")
             {
-                SRS.HalfOrcSetup();
+                SRS.HalfOrcSetup(ThisToon);
             }
             else if (CharacterRace == "Human")
             {
-                SRS.HumanSetup();
+                SRS.HumanSetup(ThisToon);
             }
             else if (CharacterRace == "Tiefling")
             {
-                SRS.TieflingSetup();
+                SRS.TieflingSetup(ThisToon);
             }
 
             if (ThisToon.Attributes.ContainsKey("Strength"))
@@ -190,7 +197,6 @@ namespace DND5eCharacterGeneratorCSharp
             lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
 
             CharacterList.Add(ThisToon);
-
 
         }
 

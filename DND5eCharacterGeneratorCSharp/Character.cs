@@ -10,8 +10,7 @@ using System.Windows.Forms;
 public class Character
 {
 	public string FirstName, LastName, Age, Height, Weight, Race, Subrace, Class, Background;
-	public int HitPoints,
-		Strength,
+	public int Strength,
 		Dexterity,
 		Constitution,
 		Intelligence,
@@ -23,10 +22,16 @@ public class Character
 		IntMod,
 		WisMod,
 		ChaMod,
-		Level;
+		Level,
+		HitPoints,
+		Initiative,
+		HitDie,
+		TempHP;
+
 
 	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
-	public Dictionary<string, string> Feats = new Dictionary<string, string>();
+	public Dictionary<string, string> FeatsList = new Dictionary<string, string>();
+	public Dictionary<string, int> SkillsList = new Dictionary<string, int>();
 
 	public Character(string ToonFirstName, string ToonLastName, string ToonAge, string ToonHeight, string ToonWeight, string ToonRace, string ToonSubrace, string ToonClass, string ToonBackground)
 	{
@@ -41,14 +46,14 @@ public class Character
 		Background = ToonBackground;
 		HitPoints = RollHP(Class);
 		Level = 1;
+		Initiative = 0;
 		Dictionary<string, int> Attributes = new Dictionary<string, int>();
-		Attributes.Add("Strength", 0);
-		Attributes.Add("Dexterity", 0);
-		Attributes.Add("Constitution", 0);
-		Attributes.Add("Intelligence", 0);
-		Attributes.Add("Wisdom", 0);
-		Attributes.Add("Charisma", 0);
-		Dictionary<string, string> Feats = new Dictionary<string, string>();
+		InitialiseAttributes();
+		Dictionary<string, string> FeatsList = new Dictionary<string, string>();
+		Dictionary<string, int> SkillsList = new Dictionary<string, int>();
+		InitialiseSkills();
+		Feats Feats = new Feats();
+		SetHitDie(Class);
 	}
 
 	public Character()
@@ -56,7 +61,39 @@ public class Character
 
     }
 
-	private int RollHP(String ClassName)
+	public void InitialiseAttributes()
+    {
+		Attributes.Add("Strength", 0);
+		Attributes.Add("Dexterity", 0);
+		Attributes.Add("Constitution", 0);
+		Attributes.Add("Intelligence", 0);
+		Attributes.Add("Wisdom", 0);
+		Attributes.Add("Charisma", 0);
+	}
+
+	public void InitialiseSkills()
+    {
+		SkillsList.Add("Athletics", StrMod);
+		SkillsList.Add("Acrobatics", DexMod);
+		SkillsList.Add("Sleight of Hand", DexMod);
+		SkillsList.Add("Stealth", DexMod);
+		SkillsList.Add("Arcana", IntMod);
+		SkillsList.Add("History", IntMod);
+		SkillsList.Add("Investigation", IntMod);
+		SkillsList.Add("Nature", IntMod);
+		SkillsList.Add("Religion", IntMod);
+		SkillsList.Add("Animal Handling", WisMod);
+		SkillsList.Add("Insight", WisMod);
+		SkillsList.Add("Medicine", WisMod);
+		SkillsList.Add("Perception", WisMod);
+		SkillsList.Add("Survival", WisMod);
+		SkillsList.Add("Deception", ChaMod);
+		SkillsList.Add("Intimidation", ChaMod);
+		SkillsList.Add("Performance", ChaMod);
+		SkillsList.Add("Persuasion", ChaMod);
+	}
+
+	public int RollHP(String ClassName)
     {
 		int Result;
 		if(ClassName == "Barbarian")
@@ -144,11 +181,112 @@ public class Character
         }		
     }
 
-	public void AddFeat(Character ThisToon, string FeatName, string FeatDesc)
+	public void SetSkill(Character ThisToon, string SkillName, int SkillValue)
     {
-		if (!ThisToon.Feats.ContainsKey(FeatName))
+		ThisToon.SkillsList[SkillName] = SkillValue;
+    }
+
+	public void ModifySkill(Character ThisToon, string SkillName, int AddedValue)
+    {
+		ThisToon.SkillsList[SkillName] = ThisToon.SkillsList[SkillName] + AddedValue;
+    }
+
+	public void AddFeat(Character ThisToon, string FeatName)
+    {
+		if (!ThisToon.FeatsList.ContainsKey(FeatName))
+		{
+			string FeatDesc = Feats.FeatList[FeatName];
+			ThisToon.FeatsList.Add(FeatName, FeatDesc);
+		}
+    }
+
+	public void RemoveFeat(Character ThisToon, string FeatName)
+    {
+		if (ThisToon.FeatsList.ContainsKey(FeatName))
         {
-			ThisToon.Feats.Add(FeatName, FeatDesc);
+			ThisToon.FeatsList.Remove(FeatName);
         }
     }
+
+	public void SetInitiative(Character ThisToon, int Value)
+    {
+		ThisToon.Initiative = Value;
+    }
+
+	public void ModifyInitiative(Character ThisToon, int Value)
+    {
+		ThisToon.Initiative = ThisToon.Initiative + Value;
+    }
+
+	public void SetTempHP(Character ThisToon, int Value)
+    {
+		ThisToon.TempHP = Value;
+    }
+
+	public void ModifyTempHP(Character ThisToon, int Value)
+    {
+		ThisToon.TempHP = ThisToon.TempHP + Value;
+    }
+
+	public int SetHitDie(String ClassName)
+    {
+		int Result = 0;
+
+		if (ClassName == "Barbarian")
+		{
+			Result = 12;
+		}
+		else if (ClassName == "Bard")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Cleric")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Druid")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Fighter")
+		{
+			Result = 10;
+		}
+		else if (ClassName == "Monk")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Paladin")
+		{
+			Result = 10;
+		}
+		else if (ClassName == "Ranger")
+		{
+			Result = 10;
+		}
+		else if (ClassName == "Rogue")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Sorcerer")
+		{
+			Result = 6;
+		}
+		else if (ClassName == "Warlock")
+		{
+			Result = 8;
+		}
+		else if (ClassName == "Wizard")
+		{
+			Result = 6;
+		}
+		else
+		{
+			Result = 0;
+		}
+
+		return Result;
+	}
+
+
 }

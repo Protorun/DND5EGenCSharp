@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Calcs.cs" />
+    <Compile Include="Feats.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

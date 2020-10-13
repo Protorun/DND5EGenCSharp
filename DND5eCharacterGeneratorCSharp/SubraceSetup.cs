@@ -7,7 +7,7 @@ public class SubraceSetup
 
     public SubraceSetup()
     {
-
+        //Feats feats = new Feats();
     }
 
     public void SubraceListSetup(ListBox ListRace, ListBox ListSubrace)
@@ -90,8 +90,8 @@ public class SubraceSetup
         ThisToon.ModifyAttribute(ThisToon, "Charisma", 1);
 
         if (ThisToon.Subrace == "Black Dragonborn")
-        {
-            ThisToon.AddFeat(ThisToon, "Darkvision", "Darkvision up to 60ft. No colour, only shades of grey");
+        {          
+            ThisToon.AddFeat(ThisToon, "Darkvision");
         }
         else if (ThisToon.Subrace == "Blue Dragonborn")
         {
@@ -135,7 +135,7 @@ public class SubraceSetup
     {
         ThisToon.ModifyAttribute(ThisToon, "Constitution", 2);
 
-        ThisToon.AddFeat(ThisToon, "Darkvision", "Darkvision up to 60ft. No colour, only shades of grey");
+        ThisToon.AddFeat(ThisToon, "Darkvision");
 
         if (ThisToon.Subrace == "Hill Dwarf")
         {
@@ -149,7 +149,11 @@ public class SubraceSetup
 
     public void ElfSetup(Character ThisToon)
     {
-        ThisToon.AddFeat(ThisToon, "Darkvision", "Darkvision up to 60ft. No colour, only shades of grey");
+        ThisToon.ModifyAttribute(ThisToon, "Dexterity", 2);
+        ThisToon.AddFeat(ThisToon, "Darkvision");
+        ThisToon.AddFeat(ThisToon, "Keen Senses");
+        ThisToon.AddFeat(ThisToon, "Fey Ancestry");
+        ThisToon.AddFeat(ThisToon, "Trance");
         if (ThisToon.Subrace == "High Elf")
         {
 

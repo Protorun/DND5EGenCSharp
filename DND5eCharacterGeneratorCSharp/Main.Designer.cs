@@ -61,6 +61,26 @@
             this.lblSubrace = new System.Windows.Forms.Label();
             this.lblDisplaySubrace = new System.Windows.Forms.Label();
             this.btnTest = new System.Windows.Forms.Button();
+            this.lblDisplayFeats = new System.Windows.Forms.Label();
+            this.lblSkills = new System.Windows.Forms.Label();
+            this.lblNature = new System.Windows.Forms.Label();
+            this.lblDeception = new System.Windows.Forms.Label();
+            this.lblAnimalHandling = new System.Windows.Forms.Label();
+            this.lblArcana = new System.Windows.Forms.Label();
+            this.lblAcrobatics = new System.Windows.Forms.Label();
+            this.lblAthletics = new System.Windows.Forms.Label();
+            this.lblInsight = new System.Windows.Forms.Label();
+            this.lblReligion = new System.Windows.Forms.Label();
+            this.lblInvestigation = new System.Windows.Forms.Label();
+            this.lblHistory = new System.Windows.Forms.Label();
+            this.lblStealth = new System.Windows.Forms.Label();
+            this.lblSleightofhand = new System.Windows.Forms.Label();
+            this.lblPersuasion = new System.Windows.Forms.Label();
+            this.lblPerformance = new System.Windows.Forms.Label();
+            this.lblIntimidation = new System.Windows.Forms.Label();
+            this.lblSurvival = new System.Windows.Forms.Label();
+            this.lblPerception = new System.Windows.Forms.Label();
+            this.lblMedicine = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblFirstName
@@ -397,11 +417,211 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // lblDisplayFeats
+            // 
+            this.lblDisplayFeats.AutoSize = true;
+            this.lblDisplayFeats.Location = new System.Drawing.Point(647, 69);
+            this.lblDisplayFeats.Name = "lblDisplayFeats";
+            this.lblDisplayFeats.Size = new System.Drawing.Size(33, 13);
+            this.lblDisplayFeats.TabIndex = 36;
+            this.lblDisplayFeats.Text = "Feats";
+            // 
+            // lblSkills
+            // 
+            this.lblSkills.AutoSize = true;
+            this.lblSkills.Location = new System.Drawing.Point(140, 284);
+            this.lblSkills.Name = "lblSkills";
+            this.lblSkills.Size = new System.Drawing.Size(34, 13);
+            this.lblSkills.TabIndex = 37;
+            this.lblSkills.Text = "Skills:";
+            // 
+            // lblNature
+            // 
+            this.lblNature.AutoSize = true;
+            this.lblNature.Location = new System.Drawing.Point(268, 349);
+            this.lblNature.Name = "lblNature";
+            this.lblNature.Size = new System.Drawing.Size(39, 13);
+            this.lblNature.TabIndex = 43;
+            this.lblNature.Text = "Nature";
+            // 
+            // lblDeception
+            // 
+            this.lblDeception.AutoSize = true;
+            this.lblDeception.Location = new System.Drawing.Point(140, 349);
+            this.lblDeception.Name = "lblDeception";
+            this.lblDeception.Size = new System.Drawing.Size(56, 13);
+            this.lblDeception.TabIndex = 42;
+            this.lblDeception.Text = "Deception";
+            // 
+            // lblAnimalHandling
+            // 
+            this.lblAnimalHandling.AutoSize = true;
+            this.lblAnimalHandling.Location = new System.Drawing.Point(140, 336);
+            this.lblAnimalHandling.Name = "lblAnimalHandling";
+            this.lblAnimalHandling.Size = new System.Drawing.Size(83, 13);
+            this.lblAnimalHandling.TabIndex = 41;
+            this.lblAnimalHandling.Text = "Animal Handling";
+            // 
+            // lblArcana
+            // 
+            this.lblArcana.AutoSize = true;
+            this.lblArcana.Location = new System.Drawing.Point(140, 310);
+            this.lblArcana.Name = "lblArcana";
+            this.lblArcana.Size = new System.Drawing.Size(41, 13);
+            this.lblArcana.TabIndex = 40;
+            this.lblArcana.Text = "Arcana";
+            // 
+            // lblAcrobatics
+            // 
+            this.lblAcrobatics.AutoSize = true;
+            this.lblAcrobatics.Location = new System.Drawing.Point(139, 297);
+            this.lblAcrobatics.Name = "lblAcrobatics";
+            this.lblAcrobatics.Size = new System.Drawing.Size(57, 13);
+            this.lblAcrobatics.TabIndex = 39;
+            this.lblAcrobatics.Text = "Acrobatics";
+            // 
+            // lblAthletics
+            // 
+            this.lblAthletics.AutoSize = true;
+            this.lblAthletics.Location = new System.Drawing.Point(140, 323);
+            this.lblAthletics.Name = "lblAthletics";
+            this.lblAthletics.Size = new System.Drawing.Size(47, 13);
+            this.lblAthletics.TabIndex = 38;
+            this.lblAthletics.Text = "Athletics";
+            // 
+            // lblInsight
+            // 
+            this.lblInsight.AutoSize = true;
+            this.lblInsight.Location = new System.Drawing.Point(267, 297);
+            this.lblInsight.Name = "lblInsight";
+            this.lblInsight.Size = new System.Drawing.Size(38, 13);
+            this.lblInsight.TabIndex = 49;
+            this.lblInsight.Text = "Insight";
+            // 
+            // lblReligion
+            // 
+            this.lblReligion.AutoSize = true;
+            this.lblReligion.Location = new System.Drawing.Point(394, 323);
+            this.lblReligion.Name = "lblReligion";
+            this.lblReligion.Size = new System.Drawing.Size(45, 13);
+            this.lblReligion.TabIndex = 48;
+            this.lblReligion.Text = "Religion";
+            // 
+            // lblInvestigation
+            // 
+            this.lblInvestigation.AutoSize = true;
+            this.lblInvestigation.Location = new System.Drawing.Point(267, 323);
+            this.lblInvestigation.Name = "lblInvestigation";
+            this.lblInvestigation.Size = new System.Drawing.Size(67, 13);
+            this.lblInvestigation.TabIndex = 47;
+            this.lblInvestigation.Text = "Investigation";
+            // 
+            // lblHistory
+            // 
+            this.lblHistory.AutoSize = true;
+            this.lblHistory.Location = new System.Drawing.Point(140, 362);
+            this.lblHistory.Name = "lblHistory";
+            this.lblHistory.Size = new System.Drawing.Size(39, 13);
+            this.lblHistory.TabIndex = 46;
+            this.lblHistory.Text = "History";
+            // 
+            // lblStealth
+            // 
+            this.lblStealth.AutoSize = true;
+            this.lblStealth.Location = new System.Drawing.Point(394, 349);
+            this.lblStealth.Name = "lblStealth";
+            this.lblStealth.Size = new System.Drawing.Size(40, 13);
+            this.lblStealth.TabIndex = 45;
+            this.lblStealth.Text = "Stealth";
+            // 
+            // lblSleightofhand
+            // 
+            this.lblSleightofhand.AutoSize = true;
+            this.lblSleightofhand.Location = new System.Drawing.Point(394, 336);
+            this.lblSleightofhand.Name = "lblSleightofhand";
+            this.lblSleightofhand.Size = new System.Drawing.Size(80, 13);
+            this.lblSleightofhand.TabIndex = 44;
+            this.lblSleightofhand.Text = "Sleight of Hand";
+            // 
+            // lblPersuasion
+            // 
+            this.lblPersuasion.AutoSize = true;
+            this.lblPersuasion.Location = new System.Drawing.Point(394, 310);
+            this.lblPersuasion.Name = "lblPersuasion";
+            this.lblPersuasion.Size = new System.Drawing.Size(59, 13);
+            this.lblPersuasion.TabIndex = 55;
+            this.lblPersuasion.Text = "Persuasion";
+            // 
+            // lblPerformance
+            // 
+            this.lblPerformance.AutoSize = true;
+            this.lblPerformance.Location = new System.Drawing.Point(394, 297);
+            this.lblPerformance.Name = "lblPerformance";
+            this.lblPerformance.Size = new System.Drawing.Size(67, 13);
+            this.lblPerformance.TabIndex = 54;
+            this.lblPerformance.Text = "Performance";
+            // 
+            // lblIntimidation
+            // 
+            this.lblIntimidation.AutoSize = true;
+            this.lblIntimidation.Location = new System.Drawing.Point(267, 310);
+            this.lblIntimidation.Name = "lblIntimidation";
+            this.lblIntimidation.Size = new System.Drawing.Size(60, 13);
+            this.lblIntimidation.TabIndex = 53;
+            this.lblIntimidation.Text = "Intimidation";
+            // 
+            // lblSurvival
+            // 
+            this.lblSurvival.AutoSize = true;
+            this.lblSurvival.Location = new System.Drawing.Point(394, 362);
+            this.lblSurvival.Name = "lblSurvival";
+            this.lblSurvival.Size = new System.Drawing.Size(45, 13);
+            this.lblSurvival.TabIndex = 52;
+            this.lblSurvival.Text = "Survival";
+            // 
+            // lblPerception
+            // 
+            this.lblPerception.AutoSize = true;
+            this.lblPerception.Location = new System.Drawing.Point(267, 362);
+            this.lblPerception.Name = "lblPerception";
+            this.lblPerception.Size = new System.Drawing.Size(58, 13);
+            this.lblPerception.TabIndex = 51;
+            this.lblPerception.Text = "Perception";
+            // 
+            // lblMedicine
+            // 
+            this.lblMedicine.AutoSize = true;
+            this.lblMedicine.Location = new System.Drawing.Point(268, 336);
+            this.lblMedicine.Name = "lblMedicine";
+            this.lblMedicine.Size = new System.Drawing.Size(50, 13);
+            this.lblMedicine.TabIndex = 50;
+            this.lblMedicine.Text = "Medicine";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 457);
+            this.Controls.Add(this.lblPersuasion);
+            this.Controls.Add(this.lblPerformance);
+            this.Controls.Add(this.lblIntimidation);
+            this.Controls.Add(this.lblSurvival);
+            this.Controls.Add(this.lblPerception);
+            this.Controls.Add(this.lblMedicine);
+            this.Controls.Add(this.lblInsight);
+            this.Controls.Add(this.lblReligion);
+            this.Controls.Add(this.lblInvestigation);
+            this.Controls.Add(this.lblHistory);
+            this.Controls.Add(this.lblStealth);
+            this.Controls.Add(this.lblSleightofhand);
+            this.Controls.Add(this.lblNature);
+            this.Controls.Add(this.lblDeception);
+            this.Controls.Add(this.lblAnimalHandling);
+            this.Controls.Add(this.lblArcana);
+            this.Controls.Add(this.lblAcrobatics);
+            this.Controls.Add(this.lblAthletics);
+            this.Controls.Add(this.lblSkills);
+            this.Controls.Add(this.lblDisplayFeats);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.lblDisplaySubrace);
             this.Controls.Add(this.lblSubrace);
@@ -478,6 +698,26 @@
         private System.Windows.Forms.Label lblSubrace;
         private System.Windows.Forms.Label lblDisplaySubrace;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Label lblDisplayFeats;
+        private System.Windows.Forms.Label lblSkills;
+        private System.Windows.Forms.Label lblNature;
+        private System.Windows.Forms.Label lblDeception;
+        private System.Windows.Forms.Label lblAnimalHandling;
+        private System.Windows.Forms.Label lblArcana;
+        private System.Windows.Forms.Label lblAcrobatics;
+        private System.Windows.Forms.Label lblAthletics;
+        private System.Windows.Forms.Label lblInsight;
+        private System.Windows.Forms.Label lblReligion;
+        private System.Windows.Forms.Label lblInvestigation;
+        private System.Windows.Forms.Label lblHistory;
+        private System.Windows.Forms.Label lblStealth;
+        private System.Windows.Forms.Label lblSleightofhand;
+        private System.Windows.Forms.Label lblPersuasion;
+        private System.Windows.Forms.Label lblPerformance;
+        private System.Windows.Forms.Label lblIntimidation;
+        private System.Windows.Forms.Label lblSurvival;
+        private System.Windows.Forms.Label lblPerception;
+        private System.Windows.Forms.Label lblMedicine;
     }
 }
 
