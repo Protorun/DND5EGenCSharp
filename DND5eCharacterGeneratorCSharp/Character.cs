@@ -26,7 +26,9 @@ public class Character
 		HitPoints,
 		Initiative,
 		HitDie,
-		TempHP;
+		TempHP,
+		Speed,
+		ProficiencyBonus;
 
 
 	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
@@ -47,6 +49,8 @@ public class Character
 		HitPoints = RollHP(Class);
 		Level = 1;
 		Initiative = 0;
+		Speed = 0;
+		ProficiencyBonus = 2;
 		Dictionary<string, int> Attributes = new Dictionary<string, int>();
 		InitialiseAttributes();
 		Dictionary<string, string> FeatsList = new Dictionary<string, string>();
@@ -287,6 +291,43 @@ public class Character
 
 		return Result;
 	}
+
+	public void ReCalcSkills(Character ThisToon)
+    {
+		int stat = 0;
+		int modifier = 0;
+		//ThisToon.SkillsList["Athletics"] = ThisToon.Attributes["Strength"];
+		ThisToon.SetSkill(ThisToon, "Athletics", Calcs.CalcMod(ThisToon.Attributes["Strength"]));
+		ThisToon.SetSkill(ThisToon, "Acrobatics", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
+		ThisToon.SetSkill(ThisToon, "Sleight of Hand", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
+		ThisToon.SetSkill(ThisToon, "Stealth", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
+		ThisToon.SetSkill(ThisToon, "Arcana", Calcs.CalcMod(ThisToon.Attributes["Intelligence"]));
+		ThisToon.SetSkill(ThisToon, "History", Calcs.CalcMod(ThisToon.Attributes["Intelligence"]));
+		ThisToon.SetSkill(ThisToon, "Investigation", Calcs.CalcMod(ThisToon.Attributes["Intelligence"]));
+		ThisToon.SetSkill(ThisToon, "Nature", Calcs.CalcMod(ThisToon.Attributes["Intelligence"]));
+		ThisToon.SetSkill(ThisToon, "Religion", Calcs.CalcMod(ThisToon.Attributes["Intelligence"]));
+		ThisToon.SetSkill(ThisToon, "Animal Handling", Calcs.CalcMod(ThisToon.Attributes["Wisdom"]));
+		ThisToon.SetSkill(ThisToon, "Insight", Calcs.CalcMod(ThisToon.Attributes["Wisdom"]));
+		ThisToon.SetSkill(ThisToon, "Medicine", Calcs.CalcMod(ThisToon.Attributes["Wisdom"]));
+		ThisToon.SetSkill(ThisToon, "Perception", Calcs.CalcMod(ThisToon.Attributes["Wisdom"]));
+		ThisToon.SetSkill(ThisToon, "Survival", Calcs.CalcMod(ThisToon.Attributes["Wisdom"]));
+		ThisToon.SetSkill(ThisToon, "Deception", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
+		ThisToon.SetSkill(ThisToon, "Intimidation", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
+		ThisToon.SetSkill(ThisToon, "Performance", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
+		ThisToon.SetSkill(ThisToon, "Persuasion", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
+		//stat = Calcs.CalcMod(ThisToon.Attributes["Strength"]);
+	}
+
+	public void AddSkillProficiency(Character ThisToon, string Skill)
+    {
+		int NewValue = ThisToon.ProficiencyBonus + ThisToon.SkillsList[Skill];
+		ThisToon.SetSkill(ThisToon, Skill, NewValue);
+    }
+
+	public void SetSpeed(Character ThisToon, int Speed)
+    {
+		ThisToon.Speed = Speed;
+    }
 
 
 }

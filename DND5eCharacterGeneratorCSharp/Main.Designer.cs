@@ -81,6 +81,7 @@
             this.lblSurvival = new System.Windows.Forms.Label();
             this.lblPerception = new System.Windows.Forms.Label();
             this.lblMedicine = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblFirstName
@@ -597,11 +598,21 @@
             this.lblMedicine.TabIndex = 50;
             this.lblMedicine.Text = "Medicine";
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(570, 317);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 56;
+            this.btnReturn.Text = "Main Menu";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 457);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblPersuasion);
             this.Controls.Add(this.lblPerformance);
             this.Controls.Add(this.lblIntimidation);
@@ -718,6 +729,7 @@
         private System.Windows.Forms.Label lblSurvival;
         private System.Windows.Forms.Label lblPerception;
         private System.Windows.Forms.Label lblMedicine;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
 

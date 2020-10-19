@@ -88,7 +88,7 @@ public class SubraceSetup
     {
         ThisToon.ModifyAttribute(ThisToon, "Strength", 2);
         ThisToon.ModifyAttribute(ThisToon, "Charisma", 1);
-
+        ThisToon.SetSpeed(ThisToon, 30);
         if (ThisToon.Subrace == "Black Dragonborn")
         {          
             ThisToon.AddFeat(ThisToon, "Darkvision");
