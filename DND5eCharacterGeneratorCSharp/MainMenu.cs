@@ -12,7 +12,7 @@ namespace DND5eCharacterGeneratorCSharp
 {
     public partial class MainMenu : Form
     {
-        private Form NewCharacter;
+        //private Form NewCharacter;
         private Form LoadCharacter;
 
         public MainMenu()
@@ -22,7 +22,7 @@ namespace DND5eCharacterGeneratorCSharp
 
         private void BtnNewCharacter_Click(object sender, EventArgs e)
         {
-            NewCharacter = new NewToon();
+            Form NewCharacter = new NewToon();
             this.Hide();
             NewCharacter.Show();
         }

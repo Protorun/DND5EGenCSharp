@@ -11,15 +11,11 @@ public class Feats
 	{
 		//FeatList = new Dictionary<string, string>();
 		// Darkvision
-		FeatList.Add("Darkvision", "Darkvision up to 60ft. No colour, only shades of grey.");
-
-		// Elven/Half Elven Racial Feats
-		// Keen Senses
-		FeatList.Add("Keen Senses", "Proficiency in Perception skill.");
-		// Fey Ancestry
-		FeatList.Add("Fey Ancestry", "Advantage on saving throws vs being charmed. Immune to magical sleep effects.");
-		// Trance
-		FeatList.Add("Trance", "Elves don't need to sleep. Instead they meditate deeply, remaining semiconscious, for 4 hours a day.");
+		if (!FeatList.ContainsKey("Darkvision"))
+		{
+			FeatList.Add("Darkvision", "Darkvision up to 60ft. No colour, only shades of grey.");
+		}
+		SetupElvenFeats();
 	}
 
 	public static void AddNewFeat(string FeatName, string FeatDesc)
@@ -30,4 +26,14 @@ public class Feats
 		}
 	}
 
+	public void SetupElvenFeats()
+    {
+		// Elven/Half Elven Racial Feats
+		// Keen Senses
+		FeatList.Add("Keen Senses", "Proficiency in Perception skill.");
+		// Fey Ancestry
+		FeatList.Add("Fey Ancestry", "Advantage on saving throws vs being charmed. Immune to magical sleep effects.");
+		// Trance
+		FeatList.Add("Trance", "Elves don't need to sleep. Instead they meditate deeply, remaining semiconscious, for 4 hours a day.");
+	}
 }

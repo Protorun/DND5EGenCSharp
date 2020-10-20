@@ -23,6 +23,13 @@ namespace DND5eCharacterGeneratorCSharp
             InitializeComponent();
         }
 
+        public NewToon(Character CurrentCharacter)
+        {
+            InitializeComponent();
+            // INITIALISE ITEMS WITH VALUES FROM CurrentCharacter
+            TxtFirstName.Text = CurrentCharacter.FirstName;
+            TxtLastName.Text = CurrentCharacter.LastName;
+        }
 
         private void TxtFirstName_TextChanged(object sender, EventArgs e)
         {
@@ -30,7 +37,8 @@ namespace DND5eCharacterGeneratorCSharp
             FullName = FirstName + " " + LastName;
             if (string.IsNullOrEmpty(FirstName))
             {
-                TxtFirstName.Text = "Input name";
+                MessageBox.Show("Please input a first name for your character", "Input error");
+                //TxtFirstName.Text = "Input name";
             }
         }
 

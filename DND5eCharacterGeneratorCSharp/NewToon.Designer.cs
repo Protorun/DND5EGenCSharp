@@ -99,12 +99,21 @@
             this.GroupDisplayProf = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.BtnRerollStats = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.GroupDisplaySaves = new System.Windows.Forms.GroupBox();
+            this.LblStrSave = new System.Windows.Forms.Label();
+            this.LblDexSave = new System.Windows.Forms.Label();
+            this.LblConSave = new System.Windows.Forms.Label();
+            this.LblIntSave = new System.Windows.Forms.Label();
+            this.LblWisSave = new System.Windows.Forms.Label();
+            this.LblChaSave = new System.Windows.Forms.Label();
             this.groupCharacterDetails.SuspendLayout();
             this.GroupDisplayDetails.SuspendLayout();
             this.GroupDisplaySkills.SuspendLayout();
             this.GroupDisplayFeats.SuspendLayout();
             this.GroupDisplayAttributes.SuspendLayout();
             this.GroupDisplayProf.SuspendLayout();
+            this.GroupDisplaySaves.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblFirstName
@@ -600,6 +609,7 @@
             // 
             // groupCharacterDetails
             // 
+            this.groupCharacterDetails.Controls.Add(this.button1);
             this.groupCharacterDetails.Controls.Add(this.LblFirstName);
             this.groupCharacterDetails.Controls.Add(this.TxtFirstName);
             this.groupCharacterDetails.Controls.Add(this.LblLastName);
@@ -823,9 +833,9 @@
             // GroupDisplayProf
             // 
             this.GroupDisplayProf.Controls.Add(this.richTextBox1);
-            this.GroupDisplayProf.Location = new System.Drawing.Point(807, 82);
+            this.GroupDisplayProf.Location = new System.Drawing.Point(934, 82);
             this.GroupDisplayProf.Name = "GroupDisplayProf";
-            this.GroupDisplayProf.Size = new System.Drawing.Size(576, 103);
+            this.GroupDisplayProf.Size = new System.Drawing.Size(449, 103);
             this.GroupDisplayProf.TabIndex = 62;
             this.GroupDisplayProf.TabStop = false;
             this.GroupDisplayProf.Text = "Proficiencies";
@@ -836,7 +846,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(6, 13);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(564, 86);
+            this.richTextBox1.Size = new System.Drawing.Size(437, 86);
             this.richTextBox1.TabIndex = 59;
             this.richTextBox1.Text = "";
             // 
@@ -850,11 +860,90 @@
             this.BtnRerollStats.UseVisualStyleBackColor = true;
             this.BtnRerollStats.Click += new System.EventHandler(this.BtnRerollStats_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(517, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 40);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Select skill proficiencies";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // GroupDisplaySaves
+            // 
+            this.GroupDisplaySaves.Controls.Add(this.LblStrSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblDexSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblConSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblIntSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblWisSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblChaSave);
+            this.GroupDisplaySaves.Location = new System.Drawing.Point(807, 82);
+            this.GroupDisplaySaves.Name = "GroupDisplaySaves";
+            this.GroupDisplaySaves.Size = new System.Drawing.Size(121, 103);
+            this.GroupDisplaySaves.TabIndex = 62;
+            this.GroupDisplaySaves.TabStop = false;
+            this.GroupDisplaySaves.Text = "Saving Throws";
+            // 
+            // LblStrSave
+            // 
+            this.LblStrSave.AutoSize = true;
+            this.LblStrSave.Location = new System.Drawing.Point(6, 16);
+            this.LblStrSave.Name = "LblStrSave";
+            this.LblStrSave.Size = new System.Drawing.Size(56, 13);
+            this.LblStrSave.TabIndex = 24;
+            this.LblStrSave.Text = "Strength - ";
+            // 
+            // LblDexSave
+            // 
+            this.LblDexSave.AutoSize = true;
+            this.LblDexSave.Location = new System.Drawing.Point(6, 29);
+            this.LblDexSave.Name = "LblDexSave";
+            this.LblDexSave.Size = new System.Drawing.Size(57, 13);
+            this.LblDexSave.TabIndex = 25;
+            this.LblDexSave.Text = "Dexterity - ";
+            // 
+            // LblConSave
+            // 
+            this.LblConSave.AutoSize = true;
+            this.LblConSave.Location = new System.Drawing.Point(6, 42);
+            this.LblConSave.Name = "LblConSave";
+            this.LblConSave.Size = new System.Drawing.Size(71, 13);
+            this.LblConSave.TabIndex = 26;
+            this.LblConSave.Text = "Constitution - ";
+            // 
+            // LblIntSave
+            // 
+            this.LblIntSave.AutoSize = true;
+            this.LblIntSave.Location = new System.Drawing.Point(6, 55);
+            this.LblIntSave.Name = "LblIntSave";
+            this.LblIntSave.Size = new System.Drawing.Size(70, 13);
+            this.LblIntSave.TabIndex = 27;
+            this.LblIntSave.Text = "Intelligence - ";
+            // 
+            // LblWisSave
+            // 
+            this.LblWisSave.AutoSize = true;
+            this.LblWisSave.Location = new System.Drawing.Point(6, 68);
+            this.LblWisSave.Name = "LblWisSave";
+            this.LblWisSave.Size = new System.Drawing.Size(54, 13);
+            this.LblWisSave.TabIndex = 28;
+            this.LblWisSave.Text = "Wisdom - ";
+            // 
+            // LblChaSave
+            // 
+            this.LblChaSave.AutoSize = true;
+            this.LblChaSave.Location = new System.Drawing.Point(6, 81);
+            this.LblChaSave.Name = "LblChaSave";
+            this.LblChaSave.Size = new System.Drawing.Size(59, 13);
+            this.LblChaSave.TabIndex = 29;
+            this.LblChaSave.Text = "Charisma - ";
+            // 
             // NewToon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1397, 585);
+            this.Controls.Add(this.GroupDisplaySaves);
             this.Controls.Add(this.BtnRerollStats);
             this.Controls.Add(this.GroupDisplayProf);
             this.Controls.Add(this.GroupDisplayAttributes);
@@ -879,6 +968,8 @@
             this.GroupDisplayAttributes.ResumeLayout(false);
             this.GroupDisplayAttributes.PerformLayout();
             this.GroupDisplayProf.ResumeLayout(false);
+            this.GroupDisplaySaves.ResumeLayout(false);
+            this.GroupDisplaySaves.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -957,6 +1048,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnRerollStats;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox GroupDisplaySaves;
+        private System.Windows.Forms.Label LblStrSave;
+        private System.Windows.Forms.Label LblDexSave;
+        private System.Windows.Forms.Label LblConSave;
+        private System.Windows.Forms.Label LblIntSave;
+        private System.Windows.Forms.Label LblWisSave;
+        private System.Windows.Forms.Label LblChaSave;
     }
 }
 

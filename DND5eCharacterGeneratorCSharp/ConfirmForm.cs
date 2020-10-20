@@ -70,5 +70,12 @@ namespace DND5eCharacterGeneratorCSharp
             Form Menu = new MainMenu();
             Menu.Show();
         }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            Form MakeChanges = new NewToon(GeneratedCharacter);
+            MakeChanges.Show();
+            this.Hide();
+        }
     }
 }

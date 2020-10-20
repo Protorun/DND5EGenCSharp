@@ -22,6 +22,12 @@ public class Character
 		IntMod,
 		WisMod,
 		ChaMod,
+		StrSaving,
+		DexSaving,
+		ConSaving,
+		IntSaving,
+		WisSaving,
+		ChaSaving,
 		Level,
 		HitPoints,
 		Initiative,
@@ -30,11 +36,12 @@ public class Character
 		Speed,
 		ProficiencyBonus;
 
-
 	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
 	public Dictionary<string, string> FeatsList = new Dictionary<string, string>();
 	public Dictionary<string, int> SkillsList = new Dictionary<string, int>();
+	public Dictionary<string, int> SavingThrows = new Dictionary<string, int>();
 	public List<string> SkillProficiencies = new List<string>();
+	public List<string> ProfSavingThrows = new List<string>();
 
 	public Character(string ToonFirstName, string ToonLastName, string ToonAge, string ToonHeight, string ToonWeight, string ToonRace, string ToonSubrace, string ToonClass, string ToonBackground)
 	{

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GroupDisplayProf = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GroupDisplayAttributes = new System.Windows.Forms.GroupBox();
             this.lblStrength = new System.Windows.Forms.Label();
             this.lblDexterity = new System.Windows.Forms.Label();
@@ -76,32 +74,23 @@
             this.LblDisplayBackground = new System.Windows.Forms.Label();
             this.LblDisplayClass = new System.Windows.Forms.Label();
             this.BtnConfirm = new System.Windows.Forms.Button();
-            this.GroupDisplayProf.SuspendLayout();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.GroupDisplaySaves = new System.Windows.Forms.GroupBox();
+            this.LblStrSave = new System.Windows.Forms.Label();
+            this.LblDexSave = new System.Windows.Forms.Label();
+            this.LblConSave = new System.Windows.Forms.Label();
+            this.LblIntSave = new System.Windows.Forms.Label();
+            this.LblWisSave = new System.Windows.Forms.Label();
+            this.LblChaSave = new System.Windows.Forms.Label();
+            this.GroupDisplayProf = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GroupDisplayAttributes.SuspendLayout();
             this.GroupDisplayFeats.SuspendLayout();
             this.GroupDisplaySkills.SuspendLayout();
             this.GroupDisplayDetails.SuspendLayout();
+            this.GroupDisplaySaves.SuspendLayout();
+            this.GroupDisplayProf.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // GroupDisplayProf
-            // 
-            this.GroupDisplayProf.Controls.Add(this.richTextBox1);
-            this.GroupDisplayProf.Location = new System.Drawing.Point(139, 82);
-            this.GroupDisplayProf.Name = "GroupDisplayProf";
-            this.GroupDisplayProf.Size = new System.Drawing.Size(576, 103);
-            this.GroupDisplayProf.TabIndex = 67;
-            this.GroupDisplayProf.TabStop = false;
-            this.GroupDisplayProf.Text = "Proficiencies";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 13);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(564, 86);
-            this.richTextBox1.TabIndex = 59;
-            this.richTextBox1.Text = "";
             // 
             // GroupDisplayAttributes
             // 
@@ -177,18 +166,19 @@
             this.GroupDisplayFeats.Controls.Add(this.TextDisplayFeats);
             this.GroupDisplayFeats.Location = new System.Drawing.Point(12, 265);
             this.GroupDisplayFeats.Name = "GroupDisplayFeats";
-            this.GroupDisplayFeats.Size = new System.Drawing.Size(703, 282);
+            this.GroupDisplayFeats.Size = new System.Drawing.Size(710, 282);
             this.GroupDisplayFeats.TabIndex = 65;
             this.GroupDisplayFeats.TabStop = false;
             this.GroupDisplayFeats.Text = "Feats and Abilities";
             // 
             // TextDisplayFeats
             // 
-            this.TextDisplayFeats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextDisplayFeats.Location = new System.Drawing.Point(9, 19);
+            this.TextDisplayFeats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextDisplayFeats.Location = new System.Drawing.Point(6, 19);
             this.TextDisplayFeats.Name = "TextDisplayFeats";
             this.TextDisplayFeats.ReadOnly = true;
-            this.TextDisplayFeats.Size = new System.Drawing.Size(688, 257);
+            this.TextDisplayFeats.Size = new System.Drawing.Size(698, 257);
             this.TextDisplayFeats.TabIndex = 58;
             this.TextDisplayFeats.Text = "";
             // 
@@ -214,7 +204,7 @@
             this.GroupDisplaySkills.Controls.Add(this.lblNature);
             this.GroupDisplaySkills.Location = new System.Drawing.Point(12, 187);
             this.GroupDisplaySkills.Name = "GroupDisplaySkills";
-            this.GroupDisplaySkills.Size = new System.Drawing.Size(703, 72);
+            this.GroupDisplaySkills.Size = new System.Drawing.Size(710, 72);
             this.GroupDisplaySkills.TabIndex = 64;
             this.GroupDisplaySkills.TabStop = false;
             this.GroupDisplaySkills.Text = "Skills";
@@ -401,7 +391,7 @@
             this.GroupDisplayDetails.Controls.Add(this.LblDisplayClass);
             this.GroupDisplayDetails.Location = new System.Drawing.Point(12, 12);
             this.GroupDisplayDetails.Name = "GroupDisplayDetails";
-            this.GroupDisplayDetails.Size = new System.Drawing.Size(703, 64);
+            this.GroupDisplayDetails.Size = new System.Drawing.Size(710, 64);
             this.GroupDisplayDetails.TabIndex = 63;
             this.GroupDisplayDetails.TabStop = false;
             this.GroupDisplayDetails.Text = "Character Details";
@@ -552,7 +542,7 @@
             // 
             // BtnConfirm
             // 
-            this.BtnConfirm.Location = new System.Drawing.Point(325, 553);
+            this.BtnConfirm.Location = new System.Drawing.Point(289, 553);
             this.BtnConfirm.Name = "BtnConfirm";
             this.BtnConfirm.Size = new System.Drawing.Size(75, 23);
             this.BtnConfirm.TabIndex = 68;
@@ -560,13 +550,114 @@
             this.BtnConfirm.UseVisualStyleBackColor = true;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
+            // BtnEdit
+            // 
+            this.BtnEdit.Location = new System.Drawing.Point(370, 553);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(75, 23);
+            this.BtnEdit.TabIndex = 69;
+            this.BtnEdit.Text = "Edit";
+            this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
+            // GroupDisplaySaves
+            // 
+            this.GroupDisplaySaves.Controls.Add(this.LblStrSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblDexSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblConSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblIntSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblWisSave);
+            this.GroupDisplaySaves.Controls.Add(this.LblChaSave);
+            this.GroupDisplaySaves.Location = new System.Drawing.Point(139, 82);
+            this.GroupDisplaySaves.Name = "GroupDisplaySaves";
+            this.GroupDisplaySaves.Size = new System.Drawing.Size(121, 103);
+            this.GroupDisplaySaves.TabIndex = 70;
+            this.GroupDisplaySaves.TabStop = false;
+            this.GroupDisplaySaves.Text = "Saving Throws";
+            // 
+            // LblStrSave
+            // 
+            this.LblStrSave.AutoSize = true;
+            this.LblStrSave.Location = new System.Drawing.Point(6, 16);
+            this.LblStrSave.Name = "LblStrSave";
+            this.LblStrSave.Size = new System.Drawing.Size(56, 13);
+            this.LblStrSave.TabIndex = 24;
+            this.LblStrSave.Text = "Strength - ";
+            // 
+            // LblDexSave
+            // 
+            this.LblDexSave.AutoSize = true;
+            this.LblDexSave.Location = new System.Drawing.Point(6, 29);
+            this.LblDexSave.Name = "LblDexSave";
+            this.LblDexSave.Size = new System.Drawing.Size(57, 13);
+            this.LblDexSave.TabIndex = 25;
+            this.LblDexSave.Text = "Dexterity - ";
+            // 
+            // LblConSave
+            // 
+            this.LblConSave.AutoSize = true;
+            this.LblConSave.Location = new System.Drawing.Point(6, 42);
+            this.LblConSave.Name = "LblConSave";
+            this.LblConSave.Size = new System.Drawing.Size(71, 13);
+            this.LblConSave.TabIndex = 26;
+            this.LblConSave.Text = "Constitution - ";
+            // 
+            // LblIntSave
+            // 
+            this.LblIntSave.AutoSize = true;
+            this.LblIntSave.Location = new System.Drawing.Point(6, 55);
+            this.LblIntSave.Name = "LblIntSave";
+            this.LblIntSave.Size = new System.Drawing.Size(70, 13);
+            this.LblIntSave.TabIndex = 27;
+            this.LblIntSave.Text = "Intelligence - ";
+            // 
+            // LblWisSave
+            // 
+            this.LblWisSave.AutoSize = true;
+            this.LblWisSave.Location = new System.Drawing.Point(6, 68);
+            this.LblWisSave.Name = "LblWisSave";
+            this.LblWisSave.Size = new System.Drawing.Size(54, 13);
+            this.LblWisSave.TabIndex = 28;
+            this.LblWisSave.Text = "Wisdom - ";
+            // 
+            // LblChaSave
+            // 
+            this.LblChaSave.AutoSize = true;
+            this.LblChaSave.Location = new System.Drawing.Point(6, 81);
+            this.LblChaSave.Name = "LblChaSave";
+            this.LblChaSave.Size = new System.Drawing.Size(59, 13);
+            this.LblChaSave.TabIndex = 29;
+            this.LblChaSave.Text = "Charisma - ";
+            // 
+            // GroupDisplayProf
+            // 
+            this.GroupDisplayProf.Controls.Add(this.richTextBox1);
+            this.GroupDisplayProf.Location = new System.Drawing.Point(266, 82);
+            this.GroupDisplayProf.Name = "GroupDisplayProf";
+            this.GroupDisplayProf.Size = new System.Drawing.Size(456, 103);
+            this.GroupDisplayProf.TabIndex = 71;
+            this.GroupDisplayProf.TabStop = false;
+            this.GroupDisplayProf.Text = "Proficiencies";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(6, 13);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(444, 86);
+            this.richTextBox1.TabIndex = 59;
+            this.richTextBox1.Text = "";
+            // 
             // ConfirmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 584);
-            this.Controls.Add(this.BtnConfirm);
+            this.Controls.Add(this.GroupDisplaySaves);
             this.Controls.Add(this.GroupDisplayProf);
+            this.Controls.Add(this.BtnEdit);
+            this.Controls.Add(this.BtnConfirm);
             this.Controls.Add(this.GroupDisplayAttributes);
             this.Controls.Add(this.GroupDisplayFeats);
             this.Controls.Add(this.GroupDisplaySkills);
@@ -574,7 +665,6 @@
             this.Name = "ConfirmForm";
             this.Text = "Confirm character";
             this.Load += new System.EventHandler(this.ConfirmForm_Load);
-            this.GroupDisplayProf.ResumeLayout(false);
             this.GroupDisplayAttributes.ResumeLayout(false);
             this.GroupDisplayAttributes.PerformLayout();
             this.GroupDisplayFeats.ResumeLayout(false);
@@ -582,14 +672,14 @@
             this.GroupDisplaySkills.PerformLayout();
             this.GroupDisplayDetails.ResumeLayout(false);
             this.GroupDisplayDetails.PerformLayout();
+            this.GroupDisplaySaves.ResumeLayout(false);
+            this.GroupDisplaySaves.PerformLayout();
+            this.GroupDisplayProf.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox GroupDisplayProf;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox GroupDisplayAttributes;
         private System.Windows.Forms.Label lblStrength;
         private System.Windows.Forms.Label lblDexterity;
@@ -636,5 +726,15 @@
         private System.Windows.Forms.Label LblDisplayBackground;
         private System.Windows.Forms.Label LblDisplayClass;
         private System.Windows.Forms.Button BtnConfirm;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.GroupBox GroupDisplaySaves;
+        private System.Windows.Forms.Label LblStrSave;
+        private System.Windows.Forms.Label LblDexSave;
+        private System.Windows.Forms.Label LblConSave;
+        private System.Windows.Forms.Label LblIntSave;
+        private System.Windows.Forms.Label LblWisSave;
+        private System.Windows.Forms.Label LblChaSave;
+        private System.Windows.Forms.GroupBox GroupDisplayProf;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
