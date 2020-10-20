@@ -8,18 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
-
+using System.Drawing.Text;
 
 namespace DND5eCharacterGeneratorCSharp
 {
-    public partial class MainForm : Form
+    public partial class NewToon : Form
     {
-        List<Character>  CharacterList = new List<Character>();
+        //List<Character>  CharacterList = new List<Character>();
         string FullName, FirstName, LastName, CharacterRace, CharacterSubrace, CharacterClass, CharacterBackground;
         //Character ThisToon = new Character();
 
-        public MainForm()
+        public NewToon()
         {
             InitializeComponent();
         }
@@ -38,10 +37,9 @@ namespace DND5eCharacterGeneratorCSharp
         private void MainForm_Load(object sender, EventArgs e)
         {
             //Feats ToonFeats = new Feats();
-            Feats.InitialiseFeats();
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        private void BtnTest_Click(object sender, EventArgs e)
         {
             // TESTS
             // DICE ROLLER RollDice
@@ -74,8 +72,8 @@ namespace DND5eCharacterGeneratorCSharp
 
             // Testing CharacterList records
             //Console.WriteLine("CharacterList contains - " + CharacterList.Count + " records.");
-            Character TestToon = CharacterList[CharacterList.Count - 1];
-            Console.WriteLine(CharacterList.Count);
+            Character TestToon = Globals.CharacterList[Globals.CharacterList.Count - 1];
+            Console.WriteLine(Globals.CharacterList.Count);
             Console.WriteLine(TestToon.FirstName);
             if (TestToon.FeatsList.ContainsKey("Darkvision"))
             {
@@ -91,6 +89,20 @@ namespace DND5eCharacterGeneratorCSharp
             //Console.WriteLine("Strength - " + TestToon.Attributes["Strength"]);
             //Console.WriteLine(CharacterList[0].FirstName);
             //Console.WriteLine(CharacterList[0].Attributes["Charisma"]);
+        }
+
+        private void BtnReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form Menu = new MainMenu();
+            Menu.Show();
+        }
+
+        private void BtnRerollStats_Click(object sender, EventArgs e)
+        {
+            Calcs calcs = new Calcs();
+            int[] RollArray = calcs.RollArray();
+            lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
         }
 
         private void ListRace_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,13 +140,16 @@ namespace DND5eCharacterGeneratorCSharp
         {
             this.Text = FirstName + " " + LastName + " - " + " - D&D 5th Edition Character Generator";
             FullName = FirstName + " " + LastName;
-            lblDisplayFullName.Text = FullName;
-            lblDisplayRace.Text = CharacterRace;
-            lblDisplaySubrace.Text = CharacterSubrace;
-            lblDisplayClass.Text = CharacterClass;
-            lblDisplayBackground.Text = CharacterBackground;
+            LblDisplayFullName.Text = FullName;
+            LblDisplayAge.Text = TxtAge.Text;
+            LblDisplayHeight.Text = TxtHeight.Text;
+            LblDisplayWeight.Text = TxtWeight.Text;
+            LblDisplayRace.Text = CharacterRace;
+            LblDisplaySubrace.Text = CharacterSubrace;
+            LblDisplayClass.Text = CharacterClass;
+            LblDisplayBackground.Text = CharacterBackground;
             Character ThisToon = new Character(FirstName, LastName, TxtAge.Text, TxtHeight.Text, TxtWeight.Text, CharacterRace, CharacterSubrace, CharacterClass, CharacterBackground);
-
+            TextDisplayFeats.Text = FullName;
             Calcs calcs = new Calcs();
             int[] RollArray = calcs.RollArray();
             ThisToon.SetAttribute(ThisToon, "Strength", RollArray[0]);
@@ -196,7 +211,12 @@ namespace DND5eCharacterGeneratorCSharp
 
             lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
 
-            CharacterList.Add(ThisToon);
+            ThisToon.ReCalcSkills(ThisToon);
+
+            // Globals.CharacterList.Add(ThisToon);
+            Form Confirm = new ConfirmForm(ThisToon);
+            Confirm.Show();
+            this.Hide();
 
         }
 

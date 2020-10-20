@@ -34,6 +34,7 @@ public class Character
 	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
 	public Dictionary<string, string> FeatsList = new Dictionary<string, string>();
 	public Dictionary<string, int> SkillsList = new Dictionary<string, int>();
+	public List<string> SkillProficiencies = new List<string>();
 
 	public Character(string ToonFirstName, string ToonLastName, string ToonAge, string ToonHeight, string ToonWeight, string ToonRace, string ToonSubrace, string ToonClass, string ToonBackground)
 	{
@@ -219,7 +220,7 @@ public class Character
 
 	public void ModifyInitiative(Character ThisToon, int Value)
     {
-		ThisToon.Initiative = ThisToon.Initiative + Value;
+		ThisToon.Initiative +=  Value;
     }
 
 	public void SetTempHP(Character ThisToon, int Value)
@@ -229,7 +230,7 @@ public class Character
 
 	public void ModifyTempHP(Character ThisToon, int Value)
     {
-		ThisToon.TempHP = ThisToon.TempHP + Value;
+		ThisToon.TempHP += Value;
     }
 
 	public int SetHitDie(String ClassName)
@@ -294,8 +295,9 @@ public class Character
 
 	public void ReCalcSkills(Character ThisToon)
     {
-		int stat = 0;
-		int modifier = 0;
+		// THIS IS INCOMPLETE, FINISH AFTER SKILL PROFICIENCIES FORM
+		// int stat = 0;
+		// int modifier = 0;
 		//ThisToon.SkillsList["Athletics"] = ThisToon.Attributes["Strength"];
 		ThisToon.SetSkill(ThisToon, "Athletics", Calcs.CalcMod(ThisToon.Attributes["Strength"]));
 		ThisToon.SetSkill(ThisToon, "Acrobatics", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
@@ -321,6 +323,7 @@ public class Character
 	public void AddSkillProficiency(Character ThisToon, string Skill)
     {
 		int NewValue = ThisToon.ProficiencyBonus + ThisToon.SkillsList[Skill];
+		SkillProficiencies.Add(Skill);
 		ThisToon.SetSkill(ThisToon, Skill, NewValue);
     }
 

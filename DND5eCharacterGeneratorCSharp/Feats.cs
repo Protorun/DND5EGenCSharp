@@ -10,18 +10,6 @@ public class Feats
 	public Feats()
 	{
 		//FeatList = new Dictionary<string, string>();
-	}
-
-	public static void AddNewFeat(string FeatName, string FeatDesc)
-	{
-		if (!FeatList.ContainsKey(FeatName))
-		{
-			FeatList.Add(FeatName, FeatDesc);
-		}
-	}
-
-	public static void InitialiseFeats()
-	{
 		// Darkvision
 		FeatList.Add("Darkvision", "Darkvision up to 60ft. No colour, only shades of grey.");
 
@@ -32,11 +20,14 @@ public class Feats
 		FeatList.Add("Fey Ancestry", "Advantage on saving throws vs being charmed. Immune to magical sleep effects.");
 		// Trance
 		FeatList.Add("Trance", "Elves don't need to sleep. Instead they meditate deeply, remaining semiconscious, for 4 hours a day.");
-
-
 	}
 
-	
-
+	public static void AddNewFeat(string FeatName, string FeatDesc)
+	{
+		if (!FeatList.ContainsKey(FeatName))
+		{
+			FeatList.Add(FeatName, FeatDesc);
+		}
+	}
 
 }

@@ -16,5 +16,13 @@ C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj
 C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.csproj.CoreCompileInputs.cache
 C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.exe
 C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.pdb
-C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.MainForm.resources
 C:\Users\Michael\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.MainForm.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.LoadToon.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.MainMenu.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.NewToon.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.SkillProficiency.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.ConfirmForm.resources
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\bin\Debug\DND5eCharacterGeneratorCSharp.exe.manifest
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\bin\Debug\DND5eCharacterGeneratorCSharp.application
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.exe.manifest
+C:\Users\Lasto\Documents\GitHub\DND5EGenCSharp\DND5eCharacterGeneratorCSharp\obj\Debug\DND5eCharacterGeneratorCSharp.application
