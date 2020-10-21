@@ -65,10 +65,15 @@ namespace DND5eCharacterGeneratorCSharp
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-            Globals.CharacterList.Add(GeneratedCharacter);
-            this.Hide();
-            Form Menu = new MainMenu();
-            Menu.Show();
+            var ConfirmCharacter = MessageBox.Show("Confirm and save character", "Confirm character", MessageBoxButtons.YesNo);
+            if (ConfirmCharacter == DialogResult.Yes)
+            {
+                Globals.CharacterList.Add(GeneratedCharacter);
+                this.Hide();
+                Form Menu = new MainMenu();
+                Menu.Show();
+            }
+            
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)

@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Calcs.cs" />
+    <Compile Include="Gear.cs" />
     <Compile Include="ConfirmForm.cs">
       <SubType>Form</SubType>
     </Compile>

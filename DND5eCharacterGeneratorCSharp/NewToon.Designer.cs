@@ -79,6 +79,7 @@
             this.lblMedicine = new System.Windows.Forms.Label();
             this.BtnReturn = new System.Windows.Forms.Button();
             this.groupCharacterDetails = new System.Windows.Forms.GroupBox();
+            this.BtnShowSkillsForm = new System.Windows.Forms.Button();
             this.TextDisplayFeats = new System.Windows.Forms.RichTextBox();
             this.GroupDisplayDetails = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -99,7 +100,6 @@
             this.GroupDisplayProf = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.BtnRerollStats = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.GroupDisplaySaves = new System.Windows.Forms.GroupBox();
             this.LblStrSave = new System.Windows.Forms.Label();
             this.LblDexSave = new System.Windows.Forms.Label();
@@ -107,6 +107,7 @@
             this.LblIntSave = new System.Windows.Forms.Label();
             this.LblWisSave = new System.Windows.Forms.Label();
             this.LblChaSave = new System.Windows.Forms.Label();
+            this.BtnShowSheet = new System.Windows.Forms.Button();
             this.groupCharacterDetails.SuspendLayout();
             this.GroupDisplayDetails.SuspendLayout();
             this.GroupDisplaySkills.SuspendLayout();
@@ -609,7 +610,8 @@
             // 
             // groupCharacterDetails
             // 
-            this.groupCharacterDetails.Controls.Add(this.button1);
+            this.groupCharacterDetails.Controls.Add(this.BtnShowSheet);
+            this.groupCharacterDetails.Controls.Add(this.BtnShowSkillsForm);
             this.groupCharacterDetails.Controls.Add(this.LblFirstName);
             this.groupCharacterDetails.Controls.Add(this.TxtFirstName);
             this.groupCharacterDetails.Controls.Add(this.LblLastName);
@@ -634,6 +636,16 @@
             this.groupCharacterDetails.TabIndex = 57;
             this.groupCharacterDetails.TabStop = false;
             this.groupCharacterDetails.Text = "Character Details";
+            // 
+            // BtnShowSkillsForm
+            // 
+            this.BtnShowSkillsForm.Location = new System.Drawing.Point(517, 72);
+            this.BtnShowSkillsForm.Name = "BtnShowSkillsForm";
+            this.BtnShowSkillsForm.Size = new System.Drawing.Size(121, 40);
+            this.BtnShowSkillsForm.TabIndex = 34;
+            this.BtnShowSkillsForm.Text = "Select skill proficiencies";
+            this.BtnShowSkillsForm.UseVisualStyleBackColor = true;
+            this.BtnShowSkillsForm.Click += new System.EventHandler(this.BtnShowSkillsForm_Click);
             // 
             // TextDisplayFeats
             // 
@@ -860,15 +872,6 @@
             this.BtnRerollStats.UseVisualStyleBackColor = true;
             this.BtnRerollStats.Click += new System.EventHandler(this.BtnRerollStats_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(517, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 40);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Select skill proficiencies";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // GroupDisplaySaves
             // 
             this.GroupDisplaySaves.Controls.Add(this.LblStrSave);
@@ -937,6 +940,16 @@
             this.LblChaSave.Size = new System.Drawing.Size(59, 13);
             this.LblChaSave.TabIndex = 29;
             this.LblChaSave.Text = "Charisma - ";
+            // 
+            // BtnShowSheet
+            // 
+            this.BtnShowSheet.Location = new System.Drawing.Point(518, 119);
+            this.BtnShowSheet.Name = "BtnShowSheet";
+            this.BtnShowSheet.Size = new System.Drawing.Size(120, 23);
+            this.BtnShowSheet.TabIndex = 35;
+            this.BtnShowSheet.Text = "Show Sheet";
+            this.BtnShowSheet.UseVisualStyleBackColor = true;
+            this.BtnShowSheet.Click += new System.EventHandler(this.BtnShowSheet_Click);
             // 
             // NewToon
             // 
@@ -1048,7 +1061,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnRerollStats;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnShowSkillsForm;
         private System.Windows.Forms.GroupBox GroupDisplaySaves;
         private System.Windows.Forms.Label LblStrSave;
         private System.Windows.Forms.Label LblDexSave;
@@ -1056,6 +1069,7 @@
         private System.Windows.Forms.Label LblIntSave;
         private System.Windows.Forms.Label LblWisSave;
         private System.Windows.Forms.Label LblChaSave;
+        private System.Windows.Forms.Button BtnShowSheet;
     }
 }
 

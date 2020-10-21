@@ -29,6 +29,13 @@ namespace DND5eCharacterGeneratorCSharp
             // INITIALISE ITEMS WITH VALUES FROM CurrentCharacter
             TxtFirstName.Text = CurrentCharacter.FirstName;
             TxtLastName.Text = CurrentCharacter.LastName;
+            TxtAge.Text = CurrentCharacter.Age;
+            TxtHeight.Text = CurrentCharacter.Height;
+            TxtWeight.Text = CurrentCharacter.Weight;
+            ListRace.SelectedItem = CurrentCharacter.Race;
+            ListSubrace.SelectedItem = CurrentCharacter.Subrace;
+            ListClass.SelectedItem = CurrentCharacter.Class;
+            ListBackground.SelectedItem = CurrentCharacter.Background;
         }
 
         private void TxtFirstName_TextChanged(object sender, EventArgs e)
@@ -113,6 +120,27 @@ namespace DND5eCharacterGeneratorCSharp
             lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
         }
 
+        private void BtnShowSkillsForm_Click(object sender, EventArgs e)
+        {
+            Form SkillProfs = new SkillProficiency();
+            SkillProfs.Show();
+        }
+
+        private void BtnShowSheet_Click(object sender, EventArgs e)
+        {
+            this.Text = FirstName + " " + LastName + " - " + " - D&D 5th Edition Character Generator";
+            FullName = FirstName + " " + LastName;
+            LblDisplayFullName.Text = FullName;
+            LblDisplayAge.Text = TxtAge.Text;
+            LblDisplayHeight.Text = TxtHeight.Text;
+            LblDisplayWeight.Text = TxtWeight.Text;
+            LblDisplayRace.Text = CharacterRace;
+            LblDisplaySubrace.Text = CharacterSubrace;
+            LblDisplayClass.Text = CharacterClass;
+            LblDisplayBackground.Text = CharacterBackground;
+            TextDisplayFeats.Text = FullName;
+        }
+
         private void ListRace_SelectedIndexChanged(object sender, EventArgs e)
         {
             CharacterRace = ListRace.SelectedItem.ToString();
@@ -146,18 +174,9 @@ namespace DND5eCharacterGeneratorCSharp
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            this.Text = FirstName + " " + LastName + " - " + " - D&D 5th Edition Character Generator";
-            FullName = FirstName + " " + LastName;
-            LblDisplayFullName.Text = FullName;
-            LblDisplayAge.Text = TxtAge.Text;
-            LblDisplayHeight.Text = TxtHeight.Text;
-            LblDisplayWeight.Text = TxtWeight.Text;
-            LblDisplayRace.Text = CharacterRace;
-            LblDisplaySubrace.Text = CharacterSubrace;
-            LblDisplayClass.Text = CharacterClass;
-            LblDisplayBackground.Text = CharacterBackground;
+
             Character ThisToon = new Character(FirstName, LastName, TxtAge.Text, TxtHeight.Text, TxtWeight.Text, CharacterRace, CharacterSubrace, CharacterClass, CharacterBackground);
-            TextDisplayFeats.Text = FullName;
+
             Calcs calcs = new Calcs();
             int[] RollArray = calcs.RollArray();
             ThisToon.SetAttribute(ThisToon, "Strength", RollArray[0]);

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DND5eCharacterGeneratorCSharp.exe" size="62432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DND5eCharacterGeneratorCSharp.exe" size="77792">
       <assemblyIdentity name="DND5eCharacterGeneratorCSharp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QYYseKZPr7RaQHIvV5GbLz6xE/ilTrpgDdo/TgNtlew=</dsig:DigestValue>
+        <dsig:DigestValue>p8jhK1Cy3KRDYxcmKJCLNx5N7cNqr17+oHmTEhHUO2g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
