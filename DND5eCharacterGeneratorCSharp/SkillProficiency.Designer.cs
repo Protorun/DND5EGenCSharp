@@ -39,7 +39,6 @@
             this.RadioArcana = new System.Windows.Forms.RadioButton();
             this.RadioReligion = new System.Windows.Forms.RadioButton();
             this.GroupStr = new System.Windows.Forms.GroupBox();
-            this.GroupDex = new System.Windows.Forms.GroupBox();
             this.GroupInt = new System.Windows.Forms.GroupBox();
             this.GroupWis = new System.Windows.Forms.GroupBox();
             this.RadioAnimalHandling = new System.Windows.Forms.RadioButton();
@@ -55,8 +54,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblNumberProfs = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.GroupStr.SuspendLayout();
-            this.GroupDex.SuspendLayout();
             this.GroupInt.SuspendLayout();
             this.GroupWis.SuspendLayout();
             this.GroupCha.SuspendLayout();
@@ -87,7 +87,7 @@
             // RadioAcrobatics
             // 
             this.RadioAcrobatics.AutoSize = true;
-            this.RadioAcrobatics.Location = new System.Drawing.Point(4, 19);
+            this.RadioAcrobatics.Location = new System.Drawing.Point(135, 54);
             this.RadioAcrobatics.Name = "RadioAcrobatics";
             this.RadioAcrobatics.Size = new System.Drawing.Size(75, 17);
             this.RadioAcrobatics.TabIndex = 2;
@@ -98,7 +98,7 @@
             // RadioSleightOfHand
             // 
             this.RadioSleightOfHand.AutoSize = true;
-            this.RadioSleightOfHand.Location = new System.Drawing.Point(4, 42);
+            this.RadioSleightOfHand.Location = new System.Drawing.Point(135, 77);
             this.RadioSleightOfHand.Name = "RadioSleightOfHand";
             this.RadioSleightOfHand.Size = new System.Drawing.Size(98, 17);
             this.RadioSleightOfHand.TabIndex = 3;
@@ -109,7 +109,7 @@
             // RadioStealth
             // 
             this.RadioStealth.AutoSize = true;
-            this.RadioStealth.Location = new System.Drawing.Point(4, 65);
+            this.RadioStealth.Location = new System.Drawing.Point(135, 100);
             this.RadioStealth.Name = "RadioStealth";
             this.RadioStealth.Size = new System.Drawing.Size(58, 17);
             this.RadioStealth.TabIndex = 4;
@@ -181,18 +181,6 @@
             this.GroupStr.TabIndex = 20;
             this.GroupStr.TabStop = false;
             this.GroupStr.Text = "Strength";
-            // 
-            // GroupDex
-            // 
-            this.GroupDex.Controls.Add(this.RadioAcrobatics);
-            this.GroupDex.Controls.Add(this.RadioSleightOfHand);
-            this.GroupDex.Controls.Add(this.RadioStealth);
-            this.GroupDex.Location = new System.Drawing.Point(135, 38);
-            this.GroupDex.Name = "GroupDex";
-            this.GroupDex.Size = new System.Drawing.Size(114, 134);
-            this.GroupDex.TabIndex = 21;
-            this.GroupDex.TabStop = false;
-            this.GroupDex.Text = "Dexterity";
             // 
             // GroupInt
             // 
@@ -361,26 +349,47 @@
             this.LblNumberProfs.TabIndex = 27;
             this.LblNumberProfs.Text = "0";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(132, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Dexterity:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(135, 175);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // SkillProficiency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 276);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.RadioAcrobatics);
+            this.Controls.Add(this.RadioSleightOfHand);
             this.Controls.Add(this.LblNumberProfs);
+            this.Controls.Add(this.RadioStealth);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GroupCha);
             this.Controls.Add(this.GroupWis);
             this.Controls.Add(this.GroupInt);
-            this.Controls.Add(this.GroupDex);
             this.Controls.Add(this.GroupStr);
             this.Controls.Add(this.BtnFinished);
             this.Name = "SkillProficiency";
             this.Text = "Select skill proficiencies";
             this.GroupStr.ResumeLayout(false);
             this.GroupStr.PerformLayout();
-            this.GroupDex.ResumeLayout(false);
-            this.GroupDex.PerformLayout();
             this.GroupInt.ResumeLayout(false);
             this.GroupInt.PerformLayout();
             this.GroupWis.ResumeLayout(false);
@@ -405,7 +414,6 @@
         private System.Windows.Forms.RadioButton RadioArcana;
         private System.Windows.Forms.RadioButton RadioReligion;
         private System.Windows.Forms.GroupBox GroupStr;
-        private System.Windows.Forms.GroupBox GroupDex;
         private System.Windows.Forms.GroupBox GroupInt;
         private System.Windows.Forms.GroupBox GroupWis;
         private System.Windows.Forms.RadioButton RadioAnimalHandling;
@@ -421,5 +429,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblNumberProfs;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

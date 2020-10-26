@@ -21,20 +21,26 @@ namespace DND5eCharacterGeneratorCSharp
         {
             InitializeComponent();
             PresetBackgroundProfs(ThisToon);
+            LblNumberProfs.Text = ThisToon.ExcessProfs.ToString();
+            if (ThisToon.SkillProficiencies.Contains("Acrobatics"))
+            {
+                RadioAcrobatics.Checked = true;
+            }
         }
 
         private void BtnFinished_Click(object sender, EventArgs e)
         {
             // Set skill proficiencies according to tagged radio buttons
             // Pass back to main NewToon form
-
+            //Form Confirm = new ConfirmForm(ThisToon);
+            //Confirm.Show();
 
 
 
             this.Hide();
         }
 
-        private void PresetClassProfs(Character ThisToon)
+        public void PresetClassProfs(Character ThisToon)
         {
             // Preselect and lock automatic proficiencies for class
             string ToonClass = ThisToon.Class;
@@ -49,7 +55,7 @@ namespace DND5eCharacterGeneratorCSharp
 
         }
 
-        private void PresetRaceProfs(Character ThisToon)
+        public void PresetRaceProfs(Character ThisToon)
         {
             string ToonRace = ThisToon.Race;
             if (ToonRace == "Elf")
@@ -63,89 +69,103 @@ namespace DND5eCharacterGeneratorCSharp
 
         }
 
-        private void PresetBackgroundProfs(Character ThisToon)
+        public void PresetBackgroundProfs(Character ThisToon)
         {
-            string ToonBackground = ThisToon.Background;
-            if (ToonBackground == "Acolyte")
+            if (ThisToon.Background == "Acolyte")
             {
-                ThisToon.SkillProficiencies.Add("Insight");
-                ThisToon.SkillProficiencies.Add("Religion");
+                AddProficiency(ThisToon, "Insight");
+                AddProficiency(ThisToon, "Religion");
+                RadioInsight.Checked = true;
+                RadioInsight.Enabled = false;
             }
-            else if (ToonBackground == "Charlatan")
+            else if (ThisToon.Background == "Charlatan")
             {
-                ThisToon.SkillProficiencies.Add("Deception");
-                ThisToon.SkillProficiencies.Add("Sleight of Hand");
+                AddProficiency(ThisToon, "Deception");
+                AddProficiency(ThisToon, "Sleight of Hand");
             }
-            else if (ToonBackground == "Criminal/Spy")
+            else if (ThisToon.Background == "Criminal/Spy")
             {
-                ThisToon.SkillProficiencies.Add("Deception");
-                ThisToon.SkillProficiencies.Add("Stealth");
+                AddProficiency(ThisToon, "Deception");
+                AddProficiency(ThisToon, "Stealth");
             }
-            else if (ToonBackground == "Entertainer")
+            else if (ThisToon.Background == "Entertainer")
             {
-                ThisToon.SkillProficiencies.Add("Acrobatics");
-                ThisToon.SkillProficiencies.Add("Performance");
+                AddProficiency(ThisToon, "Acrobatics");
+                AddProficiency(ThisToon, "Performance");
             }
-            else if (ToonBackground == "Folk Hero")
+            else if (ThisToon.Background == "Folk Hero")
             {
-                ThisToon.SkillProficiencies.Add("Animal Handling");
-                ThisToon.SkillProficiencies.Add("Survival");
+                AddProficiency(ThisToon, "Animal Handling");
+                AddProficiency(ThisToon, "Survival");
             }
-            else if (ToonBackground == "Gladiator")
+            else if (ThisToon.Background == "Gladiator")
             {
-                ThisToon.SkillProficiencies.Add("Acrobatics");
-                ThisToon.SkillProficiencies.Add("Performance");
+                AddProficiency(ThisToon, "Acrobatics");
+                AddProficiency(ThisToon, "Performance");
             }
-            else if (ToonBackground == "Guild Artisan/Merchant")
+            else if (ThisToon.Background == "Guild Artisan/Merchant")
             {
-                ThisToon.SkillProficiencies.Add("Insight");
-                ThisToon.SkillProficiencies.Add("Persuasion");
+                AddProficiency(ThisToon, "Insight");
+                AddProficiency(ThisToon, "Persuasion");
             }
-            else if (ToonBackground == "Hermit")
+            else if (ThisToon.Background == "Hermit")
             {
-                ThisToon.SkillProficiencies.Add("Medicine");
-                ThisToon.SkillProficiencies.Add("Religion");
+                AddProficiency(ThisToon, "Medicine");
+                AddProficiency(ThisToon, "Religion");
             }
-            else if (ToonBackground == "Knight")
+            else if (ThisToon.Background == "Knight")
             {
-                ThisToon.SkillProficiencies.Add("History");
-                ThisToon.SkillProficiencies.Add("Persuasion");
+                AddProficiency(ThisToon, "History");
+                AddProficiency(ThisToon, "Persuasion");
             }
-            else if (ToonBackground == "Noble")
+            else if (ThisToon.Background == "Noble")
             {
-                ThisToon.SkillProficiencies.Add("History");
-                ThisToon.SkillProficiencies.Add("Persuasion");
+                AddProficiency(ThisToon, "History");
+                AddProficiency(ThisToon, "Persuasion");
             }
-            else if (ToonBackground == "Outlander")
+            else if (ThisToon.Background == "Outlander")
             {
-                ThisToon.SkillProficiencies.Add("Athletics");
-                ThisToon.SkillProficiencies.Add("Survival");
+                AddProficiency(ThisToon, "Athletics");
+                AddProficiency(ThisToon, "Survival");
             }
-            else if (ToonBackground == "Pirate")
+            else if (ThisToon.Background == "Pirate")
             {
-                ThisToon.SkillProficiencies.Add("Athletics");
-                ThisToon.SkillProficiencies.Add("Perception");
+                AddProficiency(ThisToon, "Athletics");
+                AddProficiency(ThisToon, "Survival");
             }
-            else if (ToonBackground == "Sage")
+            else if (ThisToon.Background == "Sage")
             {
-                ThisToon.SkillProficiencies.Add("Arcana");
-                ThisToon.SkillProficiencies.Add("History");
+                AddProficiency(ThisToon, "Arcana");
+                AddProficiency(ThisToon, "History");
             }
-            else if (ToonBackground == "Sailor")
+            else if (ThisToon.Background == "Sailor")
             {
-                ThisToon.SkillProficiencies.Add("Athletics");
-                ThisToon.SkillProficiencies.Add("Perception");
+                AddProficiency(ThisToon, "Athletics");
+                AddProficiency(ThisToon, "Perception");
             }
-            else if (ToonBackground == "Soldier")
+            else if (ThisToon.Background == "Soldier")
             {
-                ThisToon.SkillProficiencies.Add("Athletics");
-                ThisToon.SkillProficiencies.Add("Intimidation");
+                AddProficiency(ThisToon, "Athletics");
+                AddProficiency(ThisToon, "Intimidation");
             }
-            else if (ToonBackground == "Urchin")
+            else if (ThisToon.Background == "Urchin")
             {
-                ThisToon.SkillProficiencies.Add("Sleight of Hand");
-                ThisToon.SkillProficiencies.Add("Stealth");
+                AddProficiency(ThisToon, "Sleight of Hand");
+                AddProficiency(ThisToon, "Stealth");
             }
         }
+
+        public void AddProficiency(Character ThisToon, string Skill)
+        {
+            if (!ThisToon.SkillProficiencies.Contains(Skill))
+            {
+                ThisToon.SkillProficiencies.Add(Skill);
+            }
+            else if (ThisToon.SkillProficiencies.Contains(Skill))
+            {
+                ThisToon.ExcessProfs += 1;
+            }
+        }
+
     }
 }

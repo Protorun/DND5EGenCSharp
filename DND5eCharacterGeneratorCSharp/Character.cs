@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 /// <summary>
@@ -34,13 +35,15 @@ public class Character
 		HitDie,
 		TempHP,
 		Speed,
-		ProficiencyBonus;
+		ProficiencyBonus,
+		ExcessProfs;
 
 	public Dictionary<string, int> Attributes = new Dictionary<string, int>();
+	public Dictionary<string, int> AttributeMods = new Dictionary<string, int>();
 	public Dictionary<string, string> FeatsList = new Dictionary<string, string>();
 	public Dictionary<string, int> SkillsList = new Dictionary<string, int>();
-	public Dictionary<string, int> SavingThrows = new Dictionary<string, int>();
 	public List<string> SkillProficiencies = new List<string>();
+	public Dictionary<string, int> SavingThrows = new Dictionary<string, int>();
 	public List<string> ProfSavingThrows = new List<string>();
 
 	public Character(string ToonFirstName, string ToonLastName, string ToonAge, string ToonHeight, string ToonWeight, string ToonRace, string ToonSubrace, string ToonClass, string ToonBackground)
@@ -60,12 +63,23 @@ public class Character
 		Speed = 0;
 		ProficiencyBonus = 2;
 		Dictionary<string, int> Attributes = new Dictionary<string, int>();
-		InitialiseAttributes();
+		Dictionary<string, int> AttributeMods = new Dictionary<string, int>();
+		//this.InitialiseAttributes();
+		//SetAttMods(this);
 		Dictionary<string, string> FeatsList = new Dictionary<string, string>();
+		SkillProficiency Skills = new SkillProficiency(this);
 		Dictionary<string, int> SkillsList = new Dictionary<string, int>();
-		InitialiseSkills();
-		Feats Feats = new Feats();
+		//this.InitialiseSkills(this);
+
+		Skills.PresetBackgroundProfs(this);
+		Skills.PresetRaceProfs(this);
+		Skills.PresetClassProfs(this);
+		Feats Feats = new Feats(this);
 		SetHitDie(Class);
+		List<string> ProfSavingThrows = new List<String>();
+		Dictionary<string, int> SavingThrows = new Dictionary<string, int>();
+		SetupClass(this);
+		//ReCalcSkills(this);
 	}
 
 	public Character()
@@ -75,34 +89,53 @@ public class Character
 
 	public void InitialiseAttributes()
     {
-		Attributes.Add("Strength", 0);
-		Attributes.Add("Dexterity", 0);
-		Attributes.Add("Constitution", 0);
-		Attributes.Add("Intelligence", 0);
-		Attributes.Add("Wisdom", 0);
-		Attributes.Add("Charisma", 0);
+		Attributes.Add("Strength", this.Strength); ;
+		Attributes.Add("Dexterity", this.Dexterity);
+		Attributes.Add("Constitution", this.Constitution);
+		Attributes.Add("Intelligence", this.Intelligence);
+		Attributes.Add("Wisdom", this.Wisdom);
+		Attributes.Add("Charisma", this.Charisma);
+
+		SetAttMods(this);
 	}
 
-	public void InitialiseSkills()
+	public void SetAttMods(Character ThisToon)
     {
-		SkillsList.Add("Athletics", StrMod);
-		SkillsList.Add("Acrobatics", DexMod);
-		SkillsList.Add("Sleight of Hand", DexMod);
-		SkillsList.Add("Stealth", DexMod);
-		SkillsList.Add("Arcana", IntMod);
-		SkillsList.Add("History", IntMod);
-		SkillsList.Add("Investigation", IntMod);
-		SkillsList.Add("Nature", IntMod);
-		SkillsList.Add("Religion", IntMod);
-		SkillsList.Add("Animal Handling", WisMod);
-		SkillsList.Add("Insight", WisMod);
-		SkillsList.Add("Medicine", WisMod);
-		SkillsList.Add("Perception", WisMod);
-		SkillsList.Add("Survival", WisMod);
-		SkillsList.Add("Deception", ChaMod);
-		SkillsList.Add("Intimidation", ChaMod);
-		SkillsList.Add("Performance", ChaMod);
-		SkillsList.Add("Persuasion", ChaMod);
+		AttributeMods.Add("Strength", Calcs.CalcMod(Strength));
+		AttributeMods.Add("Dexterity", Calcs.CalcMod(Dexterity));
+		AttributeMods.Add("Constitution", Calcs.CalcMod(Constitution));
+		AttributeMods.Add("Intelligence", Calcs.CalcMod(Intelligence));
+		AttributeMods.Add("Wisdom", Calcs.CalcMod(Wisdom));
+		AttributeMods.Add("Charisma", Calcs.CalcMod(Charisma));
+
+		ThisToon.StrMod = Calcs.CalcMod(Strength);
+		ThisToon.DexMod = Calcs.CalcMod(Dexterity);
+		ThisToon.ConMod = Calcs.CalcMod(Constitution);
+		ThisToon.IntMod = Calcs.CalcMod(Intelligence);
+		ThisToon.WisMod = Calcs.CalcMod(Wisdom);
+		ThisToon.ChaMod = Calcs.CalcMod(Charisma);
+	}
+
+	public void InitialiseSkills(Character ThisToon)
+    {
+		SkillsList.Add("Athletics", ThisToon.StrMod);
+		SkillsList.Add("Acrobatics", ThisToon.DexMod);
+		SkillsList.Add("Sleight of Hand", ThisToon.DexMod);
+		SkillsList.Add("Stealth", ThisToon.DexMod);
+		SkillsList.Add("Arcana", ThisToon.IntMod);
+		SkillsList.Add("History", ThisToon.IntMod);
+		SkillsList.Add("Investigation", ThisToon.IntMod);
+		SkillsList.Add("Nature", ThisToon.IntMod);
+		SkillsList.Add("Religion", ThisToon.IntMod);
+		SkillsList.Add("Animal Handling", ThisToon.WisMod);
+		SkillsList.Add("Insight", ThisToon.WisMod);
+		SkillsList.Add("Medicine", ThisToon.WisMod);
+		SkillsList.Add("Perception", ThisToon.WisMod);
+		SkillsList.Add("Survival", ThisToon.WisMod);
+		SkillsList.Add("Deception", ThisToon.ChaMod);
+		SkillsList.Add("Intimidation", ThisToon.ChaMod);
+		SkillsList.Add("Performance", ThisToon.ChaMod);
+		SkillsList.Add("Persuasion", ThisToon.ChaMod);
 	}
 
 	public int RollHP(String ClassName)
@@ -175,11 +208,27 @@ public class Character
         if (ThisToon.Attributes.ContainsKey(AttName))
         {
 			ThisToon.Attributes[AttName] = AttValue;
+			if (ThisToon.AttributeMods.ContainsKey(AttName))
+            {
+				ThisToon.AttributeMods[AttName] = Calcs.CalcMod(AttValue);
+            }
+            else
+            {
+				ThisToon.AttributeMods.Add(AttName, AttValue);
+            }
 		}
         else
         {
 			ThisToon.Attributes.Add(AttName, AttValue);
-        }
+			if (ThisToon.AttributeMods.ContainsKey(AttName))
+			{
+				ThisToon.AttributeMods[AttName] = Calcs.CalcMod(AttValue);
+			}
+			else
+			{
+				ThisToon.AttributeMods.Add(AttName, AttValue);
+			}
+		}
 		
     }
 
@@ -306,7 +355,7 @@ public class Character
 		// int stat = 0;
 		// int modifier = 0;
 		//ThisToon.SkillsList["Athletics"] = ThisToon.Attributes["Strength"];
-		ThisToon.SetSkill(ThisToon, "Athletics", Calcs.CalcMod(ThisToon.Attributes["Strength"]));
+		ThisToon.SetSkill(ThisToon, "Athletics", ThisToon.StrMod);
 		ThisToon.SetSkill(ThisToon, "Acrobatics", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
 		ThisToon.SetSkill(ThisToon, "Sleight of Hand", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
 		ThisToon.SetSkill(ThisToon, "Stealth", Calcs.CalcMod(ThisToon.Attributes["Dexterity"]));
@@ -324,14 +373,17 @@ public class Character
 		ThisToon.SetSkill(ThisToon, "Intimidation", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
 		ThisToon.SetSkill(ThisToon, "Performance", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
 		ThisToon.SetSkill(ThisToon, "Persuasion", Calcs.CalcMod(ThisToon.Attributes["Charisma"]));
-		//stat = Calcs.CalcMod(ThisToon.Attributes["Strength"]);
+		CalcSkillProficiency(ThisToon);
 	}
 
-	public void AddSkillProficiency(Character ThisToon, string Skill)
+	public void CalcSkillProficiency(Character ThisToon)
     {
-		int NewValue = ThisToon.ProficiencyBonus + ThisToon.SkillsList[Skill];
-		SkillProficiencies.Add(Skill);
-		ThisToon.SetSkill(ThisToon, Skill, NewValue);
+		for (int i = 0; i <= ThisToon.SkillProficiencies.Count - 1; i++)
+        {
+			string Skill = ThisToon.SkillProficiencies[i];
+			int NewValue = ThisToon.ProficiencyBonus + ThisToon.SkillsList[Skill];
+			ThisToon.SetSkill(ThisToon, Skill, NewValue);
+		}
     }
 
 	public void SetSpeed(Character ThisToon, int Speed)
@@ -339,5 +391,194 @@ public class Character
 		ThisToon.Speed = Speed;
     }
 
+	public void SetupClass(Character ThisToon)
+    {
+		if (ThisToon.Class == "Barbarian")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Strength");
+			ThisToon.ProfSavingThrows.Add("Constitution");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Bard")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Dexterity");
+			ThisToon.ProfSavingThrows.Add("Charisma");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Cleric")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Wisdom");
+			ThisToon.ProfSavingThrows.Add("Charisma");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Druid")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Intelligence");
+			ThisToon.ProfSavingThrows.Add("Wisdom");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Fighter")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Strength");
+			ThisToon.ProfSavingThrows.Add("Constitution");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Monk")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Strength");
+			ThisToon.ProfSavingThrows.Add("Dexterity");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Paladin")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Wisdom");
+			ThisToon.ProfSavingThrows.Add("Charisma");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Ranger")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Strength");
+			ThisToon.ProfSavingThrows.Add("Dexterity");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Rogue")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Dexterity");
+			ThisToon.ProfSavingThrows.Add("Intelligence");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Sorcerer")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Constitution");
+			ThisToon.ProfSavingThrows.Add("Charisma");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Warlock")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Wisdom");
+			ThisToon.ProfSavingThrows.Add("Charisma");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else if (ThisToon.Class == "Wizard")
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+			ThisToon.ProfSavingThrows.Add("Intelligence");
+			ThisToon.ProfSavingThrows.Add("Wisdom");
+			ThisToon.SavingThrows.Add("Strength", ThisToon.StrMod);
+			ThisToon.SavingThrows.Add("Dexterity", ThisToon.DexMod);
+			ThisToon.SavingThrows.Add("Constitution", ThisToon.ConMod);
+			ThisToon.SavingThrows.Add("Intelligence", ThisToon.IntMod);
+			ThisToon.SavingThrows.Add("Wisdom", ThisToon.WisMod);
+			ThisToon.SavingThrows.Add("Charisma", ThisToon.ChaMod);
+			SavingProfs(ThisToon);
+		}
+		else
+		{
+			ThisToon.ProfSavingThrows.Clear();
+			ThisToon.SavingThrows.Clear();
+		}
+	}
+
+	public void SavingProfs(Character ThisToon)
+    {
+        for (int i = 0; i <= ThisToon.ProfSavingThrows.Count - 1 ; i++)
+        {
+			if (ThisToon.SavingThrows.ContainsKey(ThisToon.ProfSavingThrows[i]))
+			{
+				string ThrowName = ThisToon.ProfSavingThrows[i];
+				int NewValue = ThisToon.SavingThrows[ThrowName] + ThisToon.ProficiencyBonus;
+				ThisToon.SavingThrows[ThrowName] = NewValue;
+			}
+        }
+    }
 
 }

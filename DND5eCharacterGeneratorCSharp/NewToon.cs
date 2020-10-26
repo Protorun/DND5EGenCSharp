@@ -186,6 +186,17 @@ namespace DND5eCharacterGeneratorCSharp
             ThisToon.SetAttribute(ThisToon, "Wisdom", RollArray[4]);
             ThisToon.SetAttribute(ThisToon, "Charisma", RollArray[5]);
 
+            ThisToon.Strength = RollArray[0];
+            ThisToon.Dexterity = RollArray[1];
+            ThisToon.Constitution = RollArray[2];
+            ThisToon.Intelligence = RollArray[3];
+            ThisToon.Wisdom = RollArray[4];
+            ThisToon.Charisma = RollArray[5];
+
+            //ThisToon.InitialiseAttributes();
+            ThisToon.InitialiseSkills(ThisToon);
+            ThisToon.SetAttMods(ThisToon);
+
             SubraceSetup SRS = new SubraceSetup();
             if (CharacterRace == "Dragonborn")
             {
@@ -236,14 +247,44 @@ namespace DND5eCharacterGeneratorCSharp
             lblWisdom.Text = "Wisdom - " + ThisToon.Attributes["Wisdom"];
             lblCharisma.Text = "Charisma - " + ThisToon.Attributes["Charisma"];
 
+            LblStrSave.Text = "Strength - " + ThisToon.SavingThrows["Strength"];
+            LblDexSave.Text = "Dexterity - " + ThisToon.SavingThrows["Dexterity"];
+            LblConSave.Text = "Constitution - " + ThisToon.SavingThrows["Constitution"];
+            LblIntSave.Text = "Intelligence - " + ThisToon.SavingThrows["Intelligence"];
+            LblWisSave.Text = "Wisdom - " + ThisToon.SavingThrows["Wisdom"];
+            LblChaSave.Text = "Charisma - " + ThisToon.SavingThrows["Charisma"];
+
+            lblAthletics.Text = "Athletics - " + ThisToon.SkillsList["Athletics"];
+            lblAcrobatics.Text = "Acrobatics - " + ThisToon.SkillsList["Acrobatics"];
+            lblSleightofhand.Text = "Sleight of Hand - " + ThisToon.SkillsList["Sleight of Hand"];
+            lblStealth.Text = "Stealth - " + ThisToon.SkillsList["Stealth"];
+            lblArcana.Text = "Arcana - " + ThisToon.SkillsList["Arcana"];
+            lblHistory.Text = "History - " + ThisToon.SkillsList["History"];
+            lblInvestigation.Text = "Investigation - " + ThisToon.SkillsList["Investigation"];
+            lblNature.Text = "Nature - " + ThisToon.SkillsList["Nature"];
+            lblReligion.Text = "Religion - " + ThisToon.SkillsList["Religion"];
+            lblAnimalHandling.Text = "Animal Handling - " + ThisToon.SkillsList["Animal Handling"];
+            lblInsight.Text = "Insight - " + ThisToon.SkillsList["Insight"];
+            lblMedicine.Text = "Medicine - " + ThisToon.SkillsList["Medicine"];
+            lblPerception.Text = "Perception - " + ThisToon.SkillsList["Perception"];
+            lblSurvival.Text = "Survival - " + ThisToon.SkillsList["Survival"];
+            lblDeception.Text = "Deception - " + ThisToon.SkillsList["Deception"];
+            lblIntimidation.Text = "Intimidation - " + ThisToon.SkillsList["Intimidation"];
+            lblPerformance.Text = "Performance - " + ThisToon.SkillsList["Performance"];
+            lblPersuasion.Text = "Persuasion - " + ThisToon.SkillsList["Persuasion"];
+
             lblDisplayRolls.Text = "Your rolls are - " + RollArray[0] + " , " + RollArray[1] + " , " + RollArray[2] + " , " + RollArray[3] + " , " + RollArray[4] + " , " + RollArray[5];
 
             ThisToon.ReCalcSkills(ThisToon);
 
+            LblDisplayFullName.Text = ThisToon.StrMod.ToString();
+
             // Globals.CharacterList.Add(ThisToon);
-            Form Confirm = new ConfirmForm(ThisToon);
-            Confirm.Show();
-            this.Hide();
+            //Form Confirm = new ConfirmForm(ThisToon);
+            //Confirm.Show();
+            //this.Hide();
+            Form SkillProfs = new SkillProficiency(ThisToon);
+            SkillProfs.Show();
 
         }
 

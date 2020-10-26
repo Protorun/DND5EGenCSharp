@@ -79,6 +79,7 @@
             this.lblMedicine = new System.Windows.Forms.Label();
             this.BtnReturn = new System.Windows.Forms.Button();
             this.groupCharacterDetails = new System.Windows.Forms.GroupBox();
+            this.BtnShowSheet = new System.Windows.Forms.Button();
             this.BtnShowSkillsForm = new System.Windows.Forms.Button();
             this.TextDisplayFeats = new System.Windows.Forms.RichTextBox();
             this.GroupDisplayDetails = new System.Windows.Forms.GroupBox();
@@ -107,7 +108,6 @@
             this.LblIntSave = new System.Windows.Forms.Label();
             this.LblWisSave = new System.Windows.Forms.Label();
             this.LblChaSave = new System.Windows.Forms.Label();
-            this.BtnShowSheet = new System.Windows.Forms.Button();
             this.groupCharacterDetails.SuspendLayout();
             this.GroupDisplayDetails.SuspendLayout();
             this.GroupDisplaySkills.SuspendLayout();
@@ -637,6 +637,16 @@
             this.groupCharacterDetails.TabStop = false;
             this.groupCharacterDetails.Text = "Character Details";
             // 
+            // BtnShowSheet
+            // 
+            this.BtnShowSheet.Location = new System.Drawing.Point(518, 119);
+            this.BtnShowSheet.Name = "BtnShowSheet";
+            this.BtnShowSheet.Size = new System.Drawing.Size(120, 23);
+            this.BtnShowSheet.TabIndex = 35;
+            this.BtnShowSheet.Text = "Show Sheet";
+            this.BtnShowSheet.UseVisualStyleBackColor = true;
+            this.BtnShowSheet.Click += new System.EventHandler(this.BtnShowSheet_Click);
+            // 
             // BtnShowSkillsForm
             // 
             this.BtnShowSkillsForm.Location = new System.Drawing.Point(517, 72);
@@ -940,16 +950,6 @@
             this.LblChaSave.Size = new System.Drawing.Size(59, 13);
             this.LblChaSave.TabIndex = 29;
             this.LblChaSave.Text = "Charisma - ";
-            // 
-            // BtnShowSheet
-            // 
-            this.BtnShowSheet.Location = new System.Drawing.Point(518, 119);
-            this.BtnShowSheet.Name = "BtnShowSheet";
-            this.BtnShowSheet.Size = new System.Drawing.Size(120, 23);
-            this.BtnShowSheet.TabIndex = 35;
-            this.BtnShowSheet.Text = "Show Sheet";
-            this.BtnShowSheet.UseVisualStyleBackColor = true;
-            this.BtnShowSheet.Click += new System.EventHandler(this.BtnShowSheet_Click);
             // 
             // NewToon
             // 
